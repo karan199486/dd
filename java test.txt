@@ -1,0 +1,3347 @@
+                       					 operators
+Question 1
+
+class EBH019 {
+  public static void main (String args[]) {
+    int i1 = 0xffffffff, i2 = i1 << 1;
+    int i3 = i1 >> 1, i4 = i1 >>> 1;
+    System.out.print(Integer.toHexString(i2) + ",");
+    System.out.print(Integer.toHexString(i3) + ",");
+    System.out.print(Integer.toHexString(i4));
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: ffffffff,ffffffff,ffffffff
+b. 	Prints: ffffffff,ffffffff,7fffffff
+c. 	Prints: ffffffff,7fffffff,ffffffff
+d. 	Prints: ffffffff,7ffffffe,7ffffffe
+e. 	Prints: fffffffe,ffffffff,ffffffff
+f. ANS	Prints: fffffffe,ffffffff,7fffffff
+g. 	Prints: fffffffe,7fffffff,ffffffff
+h. 	Prints: fffffffe,7fffffff,7fffffff
+i. 	Run-time error
+j. 	Compile-time error
+k. 	None of the above
+Question 2
+
+class EBH201 {
+  public static void main (String[] args) {
+    int a = 1 || 2 ^ 3 && 5;
+    int b = ((1 || 2) ^ 3) && 5;
+    int c = 1 || (2 ^ (3 && 5));
+    System.out.print(a + "," + b + "," + c);
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: 0,0,0
+b. 	Prints: 0,0,3
+c. 	Prints: 0,3,0
+d. 	Prints: 0,3,3
+e. 	Prints: 3,0,0
+f. 	Prints: 3,0,3
+g. 	Prints: 3,3,0
+h. 	Prints: 3,3,3
+i. 	Run-time error
+j.ANS 	Compile-time error
+k. 	None of the above
+Question 3
+
+class EBH202 {
+  static boolean a, b, c;
+  public static void main (String[] args) {
+    boolean x = (a = true) || (b = true) && (c = true);
+    System.out.print(a + "," + b + "," + c);
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: false,false,false
+b. 	Prints: false,false,true
+c. 	Prints: false,true,false
+d. 	Prints: false,true,true
+e.ANS 	Prints: true,false,false
+f. 	Prints: true,false,true
+g. 	Prints: true,true,false
+h. 	Prints: true,true,true
+i. 	Run-time error
+j. 	Compile-time error
+k. 	None of the above
+Question 4
+
+class EBH203 {
+  static boolean a, b, c;
+  public static void main (String[] args) {
+    boolean x = a || (b = true) && (c = true);
+    System.out.print(a + "," + b + "," + c);
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: false,false,false
+b. 	Prints: false,false,true
+c. 	Prints: false,true,false
+d.ANS 	Prints: false,true,true
+e. 	Prints: true,false,false
+f. 	Prints: true,false,true
+g. 	Prints: true,true,false
+h. 	Prints: true,true,true
+i. 	Run-time error
+j. 	Compile-time error
+k. 	None of the above
+Question 5
+
+class EBH011 {
+  public static void main (String[] args) {
+    float a = Float.POSITIVE_INFINITY;
+    double b = Double.POSITIVE_INFINITY;
+    double c = Double.NaN;
+    System.out.print((a == b)+","+(c == c)+","+(c != c));
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: false,false,false
+b. 	Prints: false,false,true
+c. 	Prints: false,true,false
+d. 	Prints: false,true,true
+e. 	Prints: true,false,false
+f.ANS 	Prints: true,false,true
+g. 	Prints: true,true,false
+h. 	Prints: true,true,true
+i. 	Run-time error
+j. 	Compile-time error
+k. 	None of the above
+Question 6
+
+class EBH012 {
+  public static void main (String[] args) {
+    byte x = 3, y = 5;
+    System.out.print((-x == ~x + 1)+","+(-y == ~y + 1));
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: false,false
+b. 	Prints: false,true
+c. 	Prints: true,false
+d.ANS 	Prints: true,true
+e. 	Run-time error
+f. 	Compile-time error
+g. 	None of the above
+Question 7
+
+class EBH013 {
+  public static void main (String[] args) {
+    byte x = 3, y = 5;
+    System.out.print((~x == -x - 1)+","+(~y == -y - 1));
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: false,false
+b. 	Prints: false,true
+c. 	Prints: true,false
+d. ANS	Prints: true,true
+e. 	Run-time error
+f. 	Compile-time error
+g. 	None of the above
+Question 8
+
+class EBH014 {
+  public static void main (String[] args) {
+    byte x = 3, y = 5;
+    System.out.print((y % x) + ",");
+    System.out.print(y == ((y/x)*x + (y%x)));
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: 1,true
+b.ANS 	Prints: 2,true
+c. 	Prints: 1,false
+d. 	Prints: 2,false
+e. 	Run-time error
+f. 	Compile-time error
+g. 	None of the above
+Question 9
+
+class Color {}
+class Red extends Color {}
+class Blue extends Color {}
+class A {
+  public static void main (String[] args) {
+    Color color1 = new Red(); Red color2 = new Red();
+    boolean b1 = color1 instanceof Color;
+    boolean b2 = color1 instanceof Blue;
+    boolean b3 = color2 instanceof Blue;
+    System.out.print(b1+","+b2+","+b3);
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	false,false,false
+b. 	false,false,true
+c. 	false,true,false
+d. 	false,true,true
+e. 	true,false,false
+f. 	true,false,true
+g. 	true,true,false
+h. 	true,true,true
+i. 	Run-time error
+j.ANS 	Compile-time error
+k. 	None of the above
+Question 10
+
+class EBH020 {
+  public static void main (String[] args) {
+    int a = 1 | 2 ^ 3 & 5;
+    int b = ((1 | 2) ^ 3) & 5;
+    int c = 1 | (2 ^ (3 & 5));
+    System.out.print(a + "," + b + "," + c);
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: 0,0,0
+b. 	Prints: 0,0,3
+c. 	Prints: 0,3,0
+d. 	Prints: 0,3,3
+e. 	Prints: 3,0,0
+f.ANS 	Prints: 3,0,3
+g. 	Prints: 3,3,0
+h. 	Prints: 3,3,3
+i. 	Run-time error
+j. 	Compile-time error
+k. 	None of the above
+Question 11
+
+class EBH025 {
+  public static void main (String args[]) {
+    int i1 = 0xffffffff, i2 = i1 << 33;
+    int i3 = i1 << (33 & 0x1f);
+    System.out.print(Integer.toHexString(i2) + ",");
+    System.out.print(Integer.toHexString(i3));
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: 0,0
+b. 	Prints: 0,fffffffe
+c. 	Prints: 0,ffffffff
+d. 	Prints: ffffffff,ffffffff
+e. 	Prints: ffffffff,fffffffe
+f. 	Prints: fffffffe,ffffffff
+g.ANS 	Prints: fffffffe,fffffffe
+h. 	Run-time error
+i. 	Compile-time error
+j. 	None of the above
+Question 12
+
+class EBH001 {
+  static int m(int i) {System.out.print(i + ", "); return i;}
+  public static void main(String s[]) {
+    m(m(1) - m(2) + m(3) * m(4));
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: 1, 2, 3, 4, 8,
+b.ANS 	Prints: 1, 2, 3, 4, 11,
+c. 	Prints: 3, 4, 1, 2, 11,
+d. 	Run-time error
+e. 	Compile-time error
+f. 	None of the above
+Question 13
+
+class EBH002 {
+  static int m(int i) {System.out.print(i + ", "); return i;}
+  public static void main(String s[]) {
+    m(m(1) + m(2) % m(3) * m(4));
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: 1, 2, 3, 4, 0,
+b. 	Prints: 1, 2, 3, 4, 3,
+c.ANS 	Prints: 1, 2, 3, 4, 9,
+d. 	Prints: 1, 2, 3, 4, 12,
+e. 	Prints: 2, 3, 4, 1, 9,
+f. 	Prints: 2, 3, 4, 1, 3,
+g. 	Run-time error
+h. 	Compile-time error
+i. 	None of the above
+Question 14
+
+class EBH005 {
+  public static void main (String[] s) {
+    byte b = 127; b <<= 2;System.out.println(b);
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: -4
+b. 	Prints: -3
+c. 	Prints: -2
+d. 	Prints: 0
+e. 	Prints: 1
+f. 	Prints: 127
+g. 	Prints: 508
+h. 	Run-time error
+i. 	Compile-time error
+j. 	None of the above
+Question 15
+
+class EBH007{
+  public static void main (String[] s) {
+    byte b = 5; System.out.println(b<<33);
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: -1
+b. 	Prints: 0
+c. 	Prints: 1
+d. 	Prints: 5
+e. 	Prints: 10
+f. 	Run-time error
+g. 	Compile-time error
+h. 	None of the above
+Question 16
+
+class EBH015 {
+  public static void main (String[] args) {
+    System.out.print((new Object() instanceof Object)+",");
+    System.out.print((new Object() instanceof String)+",");
+    System.out.print((new String() instanceof Object));
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: false,false,false
+b. 	Prints: false,false,true
+c. 	Prints: false,true,false
+d. 	Prints: false,true,true
+e. 	Prints: true,false,false
+f. 	Prints: true,false,true
+g. 	Prints: true,true,false
+h. 	Prints: true,true,true
+i. 	Run-time error
+j. 	Compile-time error
+k. 	None of the above
+Question 17
+
+class EBH101 {
+  static int m(int i) {System.out.print(i + ", "); return i;}
+  public static void main(String s[]) {
+    int i = 1; m(m(++i) + m(i++) + m(-i) + m(i++));
+}}
+
+What is the result of attempting to compile and run the above program?
+a. 	Prints: 1, 2, 3, 4, 10,
+b. 	Prints: 1, 2, -3, 4, 4,
+c. 	Prints: 2, 2, -3, -3, -2,
+d. 	Prints: 2, 2, -3, 3, 4,
+e. 	Prints: 2, 3, -3, -2, 0,
+f. 	Prints: 2, 3, -3, 4, 6,
+g. 	Prints: 2, 3, 4, 5, 14,
+h. 	Run-time error
+i. 	Compile-time error
+j. 	None of the above
+Question 18
+
+class EBH102 {
+  static int m(int i) {System.out.print(i + ","); return i;}
+  public static void main(String s[]) {
+    int i = 1, j = m(i++) + m(i++) * m(i++) + m(i++);
+    System.out.print(j % 5);
+}}
+
+What is the result of attempting to compile and run the above program?
+a. 	Prints: 1,2,3,4,0
+b. 	Prints: 1,2,3,4,1
+c. 	Prints: 1,2,3,4,2
+d. 	Prints: 1,2,3,4,3
+e. 	Prints: 1,2,3,4,4
+f. 	Prints: 1,2,3,4,5
+g. 	Run-time error
+h. 	Compile-time error
+i. 	None of the above
+Question 19
+
+class EBH103 {
+  public static void main (String[] args) {
+    byte a = 1, b = 2, c = (byte)a++, d = (byte)++b, e = (byte)a + b;
+    System.out.print(c + d + e);
+}}
+
+What is the result of attempting to compile and run the above program?
+a. 	Prints: 1 2 3
+b. 	Prints: 6
+c. 	Prints: 2 3 5
+d. 	Prints: 10
+e. 	Prints: 1 3 4
+f. 	Prints: 8
+g. 	Prints: 1 3 5
+h. 	Prints: 9
+i. 	Run-time error.
+j. 	Compile-time error.
+k. 	None of the above
+Question 20
+
+class EBH204 {
+  static boolean m1(String s, boolean b) {
+    System.out.print(s + (b ? "T" : "F"));
+    return b;
+  }
+  public static void main(String[] args) {
+    m1("A",m1("B",false) || m1("C",true) || m1("D",false));
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: ATBFCT
+b. 	Prints: ATBFCTDF
+c. 	Prints: BFCTAT
+d. 	Prints: BTCTDFAT
+e. 	Run-time error
+f. 	Compile-time error
+g. 	None of the above
+Question 21
+
+class EBH104 {
+  static int m(int i) {System.out.print(i + ", "); return i;}
+  public static void main(String s[]) {
+    int i = 1; m(m(++i) - m(i++) + m(-i) * m(~i));
+}}
+
+What is the result of attempting to compile and run the above program?
+a. 	Prints: 2, 2, -3, -4, 8,
+b. 	Prints: 2, 2, -3, -4, 12,
+c. 	Prints: 2, 3, -3, -4, 7,
+d. 	Prints: 1, 1, 1, 1, 0,
+e. 	Prints: 2, 2, -2, -2, 4,
+f. 	Prints: 2, 3, -2, -2, 3,
+g. 	Prints: -1, -2, 2, 2, 0,
+h. 	Run-time error
+i. 	Compile-time error
+j. 	None of the above
+Question 22
+
+class EBH105 {
+  static int m(int i) {System.out.print(i + ","); return 0;}
+  public static void main (String[] args) {
+    int i = 0; i = i++ + m(i); System.out.print(i);
+}}
+
+What is the result of attempting to compile and run the above program?
+a. 	Prints: 0,0
+b. 	Prints: 1,0
+c. 	Prints: 0,1
+d. 	Prints: 1,1
+e. 	Run-time error
+f. 	Compile-time error
+g. 	None of the above
+Question 23
+
+class EBH106 {
+  public static void main(String args[]) {
+    int a = 1; a += ++a + a++; System.out.print(a);
+}}
+
+What is the result of attempting to compile and run the above program?
+a. 	Prints: 3
+b. 	Prints: 4
+c. 	Prints: 5
+d. 	Prints: 6
+e. 	Prints: 7
+f. 	Run-time error
+g. 	Compile-time error
+h. 	None of the above
+Question 24
+
+class EBH107 {
+  static int m(int i) {System.out.print(i + ","); return i;}
+  public static void main(String s[]) {
+    int i=0, j = m(++i) + m(++i) * m(++i) % m(++i) + m(++i);
+    System.out.print(j%5);
+}}
+
+What is the result of attempting to compile and run the above program?
+a. 	Prints: 1,2,3,4,5,0
+b. 	Prints: 1,2,3,4,5,1
+c. 	Prints: 1,2,3,4,5,2
+d. 	Prints: 1,2,3,4,5,3
+e. 	Prints: 1,2,3,4,5,4
+f. 	Prints: 1,2,3,4,5,5
+g. 	Run-time error
+h. 	Compile-time error
+i. 	None of the above
+Question 25
+
+class EBH108 {
+  public static void main(String s[]) {
+    int i=0, j = ++i + ((++i * ++i) % ++i) + ++i;
+    System.out.print(j%5);
+}}
+
+What is the result of attempting to compile and run the above program?
+a. 	Prints: 1
+b. 	Prints: 2
+c. 	Prints: 3
+d. 	Prints: 4
+e. 	Prints: 5
+f. 	Run-time error
+g. 	Compile-time error
+h. 	None of the above
+Question 26
+
+class EBH023 {
+  static String m1(boolean b){return b?"T":"F";}
+  public static void main(String [] args) {
+    boolean b1 = false?false:true?false:true?false:true;
+    boolean b2 = false?false:(true?false:(true?false:true));
+    boolean b3 = ((false?false:true)?false:true)?false:true;
+    System.out.println(m1(b1) + m1(b2) + m1(b3));
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: FFF
+b. 	Prints: FFT
+c. 	Prints: FTF
+d. 	Prints: FTT
+e. 	Prints: TFF
+f. 	Prints: TFT
+g. 	Prints: TTF
+h. 	Prints: TTT
+i. 	Run-time error
+j. 	Compile-time error
+k. 	None of the above
+Question 27
+
+class EBH024 {
+  public static void main(String[] args) {
+    int i1 = 15;
+    String b1 = (i1>30)?"Red":(i1>20)?"Green":(i1>10)?"Blue":"Violet";
+    String b2 = (i1>30)?"Red":((i1>20)?"Green":((i1>10)?"Blue":"Violet"));
+    System.out.println(b1 + "," + b2);
+
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: Red,Red
+b. 	Prints: Green,Green
+c. 	Prints: Blue,Blue
+d. 	Prints: Violet,Violet
+e. 	Prints: Blue,Violet
+f. 	Prints: Violet,Blue
+g. 	Prints: Blue,Green
+h. 	Prints: Green,Blue
+i. 	Run-time error
+j. 	Compile-time error
+k. 	None of the above
+Question 28
+
+class EBH003 {
+  static int m(int i) {System.out.print(i + ", "); return i;}
+  public static void main(String s[]) {
+    m(m(~1) + m(1|2) + m(1&2) + m(1^3) + m(1<<1));
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: -2, 3, 0, 3, 0, 6,
+b. 	Prints: -2, 3, 0, 2, 1, 4,
+c. 	Prints: -2, 3, 0, 2, 2, 5,
+d. 	Prints: -2, 3, 0, 3, 2, 6,
+e. 	Prints: -1, 3, 0, 3, 2, 7,
+f. 	Prints: -2, 0, 3, 3, 0, 6,
+g. 	Prints: -1, 0, 3, 2, 1, 4,
+h. 	Prints: -2, 0, 3, 2, 2, 5,
+i. 	Prints: -2, 0, 3, 3, 2, 6,
+j. 	Prints: -1, 0, 3, 3, 2, 7,
+k. 	Run-time error
+l. 	Compile-time error
+m. 	None of the above
+Question 29
+
+class EBH021 {
+  public static void main(String[] args) {
+    System.out.print((-1 & 0x1f) + "," + (8 << -1));
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: 0,0
+b. 	Prints: -1,4
+c. 	Prints: 0x1f,8
+d. 	Prints: 31,16
+e. 	Run-time error
+f. 	Compile-time error
+g. 	None of the above
+
+
+
+Answers: 	Answer	Remark
+1	f  	Prints: fffffffe,ffffffff,7fffffff  	If the left-hand operand of a shift operator, <<, >> and >>>, is of type int, then the shift distance is always within the range of 0 to 31, inclusive; and is specified by the least significant 5 bits of the right hand operand. Similarly, if the left-hand operand of a shift operator is of type long, then the shift distance is always within the range of 0 to 63, inclusive; and is specified by the least significant 6 bits of the right hand operand. The left shift operator, <<, shifts each bit of the left operand to the left a distance specified by the shift distance. A number of bits that is equal to the shift distance are shifted out of the left-most bit position and are lost. A number of bits that is equal to the shift distance are shifted in at the right. The signed right shift operator, >>, shifts each bit of the left operand to the right a distance specified by the shift distance. A number of bits that is equal to the shift distance are shifted out of the right-most bit position and are lost. A number of bits that is equal to the shift distance are shifted in at the left. The value of each bit that is shifted in at the left is equal to the value of the sign bit. The signed right shift operator maintains the sign of the left operand. The unsigned right shift operator, >>>, is similar to the signed right shift operator except for the fact that each bit shifted in at the left is zero.  
+2	j  	Compile-time error  	Both operands of the conditional and operator and the conditional or operator must be of type boolean.  
+3	e  	Prints: true,false,false  	The conditional and expression is not evaluated, because the left hand operand of the conditional or expression is true. The original expression is as follows: x = (a = true) || (b = true) && (c = true). The left hand operand of the conditional or expression is the result of the assignment expression, (a = true). Since the left hand operand of the conditional or expression is true, the right hand operand will not be evaluated. In this case, the right hand operand is the conditional and expression. Consequently, neither operand of the conditional and expression is evaluated and the variables, b and c, maintain their default values of false.  
+4	d  	Prints: false,true,true  	The right hand operand of the conditional or operator is evaluated only if the left hand operand is false. The right hand operand of the conditional and operator is only evaluated if the left hand operand is true. In this case, the left hand operand of the conditional or operator is false, so the right hand operand must also be evaluated. The left hand operand of the conditional and operator is the result of the conditional or expression, true, so the right hand operand is evaluated.  
+5	f  	Prints: true,false,true  	The positive infinity of type float is promoted to the positive infinity of type double. NaN is not equal to anything including itself.  
+6	d  	Prints: true,true  	The sign of an integral numeric type is changed by inverting all of the bits and by adding one.  
+7	d  	Prints: true,true  	The bitwise complement operator produces the same result as changing the sign and subtracting one. Please note that the operand must be an integral type. The bitwise complement operator can not be applied to a floating-point value.  
+8	b  	Prints: 2,true  	Suppose the left operand were divided by the right operand. The remainder operator returns the remainder of the division operation. For integral types, the identity, (y == ((y/x)*x+(y%x))), is always true.  
+9	j  	Compile-time error  	The type of the reference color2 is Red. Since Red is not a subclass or a superclass of Blue, the expression color2 instanceof Blue is rejected at compile-time. Please note: The expression, x instanceof T, produces a compile-time error whenever the cast expression (T)x produces a compile-time error. If the program had been able to compile and run, the expression color1 instanceof Color would evaluate to true at run-time. The reference color1 refers to an instance of type Red. Since Red is a subclass of Color, the expression color1 instanceof Color would evaluate to true at run-time. The expression, color1 instanceof Blue would evaluate to false at run-time. The reference, color1, is of type Color. Since Color is a superclass of Blue, the expression, color1 instanceof Blue, is accepted at compile-time. The type of the object instance referenced by color1 is Red. Since Red is not Blue or a subclass of Blue, the expression, color1 instanceof Blue, would be false at run-time.  
+10	f  	Prints: 3,0,3  	Java evaluates operands from left to right while respecting operator precedence. The order of operator precedence starting with the lowest is as follows: |, ^, &. Although complete memorization of the operator precedence chart is not necessary, it is a good idea to memorize the three levels that appear in this question.  
+11	g  	Prints: fffffffe,fffffffe  	For each of the three shift operators, <<, >> and >>>, the shift distance is specified by the right hand operand. If the left operand is of type int, then the shift distance is always within the range 0 to 31, inclusive; and the following expression is always true: (int1 << shift) == (int1 << (shift & 0x1f)). The hexadecimal representation of decimal 31 is 0x1f and the binary representation is 0001 1111. The hexadecimal representation of decimal 33 is 0x21 and the binary representation is 0010 0001. The expression i1 << (33 & 0x1f) is equivalent to (0xffffffff << (0x21 & 0x1f)). Evaluation of the right hand operand of the shift operator produces (0xffffffff << 1). The final result is 0xfffffffe. Similarly, if the left operand is of type long, then the shift distance is always within the range 0 to 63, inclusive; and the following expression is always true: (long1 << shift) == (long1 << (shift & 0x3f)).  
+12	b  	Prints: 1, 2, 3, 4, 11,  	The expression can be simplified as follows: j = 1 - 2 + 3 * 4 = 11. The original expression is as follows: m(m(1) - m(2) + m(3) * m(4)). Simplification step one. Evaluate each operand from left to right: m(1 - 2 + 3 * 4). Step two. Add parentheses to indicate operator precedence: m(1 - 2 + (3 * 4)). Step three. Evaluate the inner-most parentheses: m(1 - 2 + 12). Step four: Work through the expression from left to right. j = 11.  
+13	c  	Prints: 1, 2, 3, 4, 9,  	The expression can be simplified as follows: 1 + 2 % 3 * 4 = 9. The original expression is as follows: m(m(1) + m(2) % m(3) * m(4)). Simplification step one. Evaluate each operand from left to right: m(1 + 2 % 3 * 4). Step two. Add parentheses to indicate operator precedence and associativity: m(1 + ((2 % 3) * 4). Step three. Evaluate the inner-most parentheses: m(1 + (2 * 4)). Step four. Evaluate the inner-most parentheses: m(1 + 8). The result is 9.  
+14	a  	Prints: -4  	If the left-hand operand of the shift operator is of type byte, short, or char then the left operand is promoted to a 32 bit int and all four bytes are shifted. When a variable of type int with a value of 127 is shifted two bits to the left, the result is 508. The compound assignment operator includes an implicit cast to the type of the left-hand operand. The expression, E1 op= E2, is equivalent to E1=(T)((E1) op (E2)), where T is the type of the left hand operand. Therefore, when 508 is cast to an eight bit byte, the three most significant bytes (24 bits) are discarded leaving only the least significant byte (8 bits). The result is the binary value, 11111100, which is the two's complement representation of negative four.  
+15	e  	Prints: 10  	If the left-hand operand of the shift operator is of type byte, short, or char then the left operand is promoted to a 32 bit int and all four bytes are shifted. If the promoted type of the left-hand operand is of type int, then the shift distance is always within the range of 0 to 31, inclusive; and is specified by the least significant 5 bits of the right-hand operand. In this case, the shift distance is 33, and the five least significant bits are 00001; so the shift distance is one bit. Note: If the type of the left hand operand is long, then the least significant six bits of the right hand operand are used.  
+16	f  	Prints: true,false,true  	The left operand of the instanceof operator must be null or a reference to an instance of an Object or a subclass of Object. The right operand of the instanceof operator must be a class type, interface type or array type. If the left operand is a reference to an instance of the type specified by the right operand or if the left operand is a reference to an instance of a subclass of the type specified by the right operand, then instanceof returns true.  
+17	d  	Prints: 2, 2, -3, 3, 4,  	The expression can be simplified as follows: j = 2 + 2 + -3 + 3 = 4. The original expression is as follows: j = ++i + i++ + -i + i++. Simplification step one. Evaluate the unary expressions from left to right: j = 2 + 2 + -3 + 3. Step two. Complete the evaluation of the simplified expression: j = 4.  
+18	b  	Prints: 1,2,3,4,1  	The expression can be simplified as follows: j = 1 + (2 * 3) + 4 = 11. The original expression is as follows: j = m(i++) + m(i++) * m(i++) + m(i++). The method, m, prints and then returns the value of the parameter, so the original expression is equivalent to the following: j = i++ + i++ * i++ + i++. Step one. Work through the expression from left to right to evaluate the unary expressions: j = 1 + 2 * 3 + 4. Step two. Add parentheses to indicate operator precedence: j = 1 + (2 * 3) + 4. Step three. Work through the simplified expression: j = 1 + 6 + 4 = 11. Step four. Evaluate the expression that is the argument of the print method: j % 5 = 11 % 5 = 1.  
+19	j  	Compile-time error.  	The precedence of the cast operator is higher than the precedence of the addition operator, so the cast applies only to variable a and not to the result of the addition. Binary numeric promotion causes the byte variables a and b to be promoted to type int before the addition operation, and the result of the addition is also of type int. The attempt to assign the int result to the byte variable e generates a possible loss of precision error.  
+20	c  	Prints: BFCTAT  	The right operand of the conditional or operator is evaluated only if the left hand operand is false. In this case, the left operand of the first conditional or operator is false so the right hand operand is evaluated. No further evaluation of the expression is necessary so the right hand operand of the second conditional or operator is not evaluated.  
+21	b  	Prints: 2, 2, -3, -4, 12,  	The original expression is as follows: m(m(++i) - m(i++) + m(-i) * m(~i)). The method, m, prints and then returns the value of the parameter, so the original expression is equivalent to the following: ++i - i++ + -i * ~i. We can use a simplification process that evaluates the expression as follows. Step one. Work through the expression from left to right to evaluate the unary expressions: 2 - 2 + -3 * -4. Step two. Add the parentheses to indicate operator precedence: 2 - 2 + (-3 * -4). Step three. Evaluate the inner-most parentheses: 2 - 2 + 12. Step four. Evalute the simplified expression to produce the result, 12. The bitwise complement operator, ~, inverts each bit of the operand. To avoid working in binary the same result can be obtained by changing the sign of the operand and then subtracting 1. The following identity is always true ~x == -x - 1.  
+22	b  	Prints: 1,0  	The expression, i = i++ + m(i), can be reduced to, i = 0 + 0. The left operand of the addition expression is found to be zero, and the value of variable i is then incremented to 1. The right hand operand of the addition operation is evaluated next. The value, 1, is passed to method m. After printing the argument value, method m returns the value zero. The two operands of the addition operation are zero as is the result of the addition. The zero value serves as the right hand operand of the assignment statement, so the value, zero, is assigned to variable i.  
+23	c  	Prints: 5  	The two statements, int a=1 followed by a += ++a + a++, can be rewritten as the single statement, a=(int)((1)+(++a + a++)). Further evaluation produces a=(int)((1)+(2 + 2)). Generally speaking, a compound assignment expression of the form E1 op= E2 can be rewritten as E1=(T)((E1)op(E2)) where T is the type of E1.  
+24	d  	Prints: 1,2,3,4,5,3  	The expression can be simplified as follows: j = 1 + ((2 * 3) % 4) + 5 = 8. The original expression is as follows: j = ++i + ++i * ++i % ++i + ++i. Step one. Evaluate the unary expressions from left to right: j = 1 + 2 * 3 % 4 + 5. Step two. Add parentheses to indicate operator precedence: j = 1 + ((2 * 3) % 4) + 5. Step three. Evaluate the inner most parentheses: j = 1 + (6 % 4) + 5. Repeat step three: j = 1 + 2 + 5. Repeat step three: j = 8. The argument of the print expression is: j%5. The result is: 8 % 5 = 3.  
+25	c  	Prints: 3  	The expression can be simplified as follows: j = 1 + ((2 * 3) % 4) + 5 = 8. The original expression is as follows: j = ++i + ((++i * ++i) % ++i) + ++i;. Step one. Evaluate the unary expressions from left to right: j = 1 + ((2 * 3) % 4) + 5. Step two. Evaluate the inner-most parentheses: j = 1 + (6 % 4) + 5. Step three: Evaluate the inner-most parentheses. j = 1 + 2 + 5. Step four: Work through the expression from left to right. j = 8. The argument of the print expression is: j%5. The result is: 8 % 5 = 3.  
+26	b  	Prints: FFT  	The expression used to assign variable b1 is equivalent to the expression used to assign variable b2. The results demonstrate that the conditional operator (?:) groups from right-to-left.  
+27	c  	Prints: Blue,Blue  	The expression used to assign variable b1 is equivalent to the expression used to assign variable b2. The results demonstrate that the conditional operator (?:) groups from right-to-left.  
+28	c  	Prints: -2, 3, 0, 2, 2, 5,  	The expression can be simplified as follows: -2+3+0+2+2=5. The original expression is as follows: m(m(~1) + m(1|2) + m(1&2) + m(1^3) + m(1<<1)). Expr 1: ~1 = -1 - 1 = -2. Expr 2: 1|2 = 0001 | 0010 = 0011 = 3. Expr 3: 1&2 = 0001 & 0010 = 0000. Expr 4: 1^3 = 0001 ^ 0011 = 0010 = 2. Expr 5: 1<<1 = 0001 << 1 = 0010 = 2. Note: The bitwise expressions were demonstrated using only four bits of the 32 bit int type values.  
+29	g  	None of the above  	Prints 31,0. The expression (-1 & 0x1f) is equal to (0xffffffff & 0x1f), and both are equal to the hex value 0x1f or decimal 31. The expression (8 << -1) is equivalent to (8 << 0xffffffff). If the left hand operand of a shift expression is of type int, then the right hand operand is implicitly masked with the value 0x1f. In other words, the expression (8 << -1) is equivalent to (8 << (-1 & 0x1f)). By replacing -1 with the hexadecimal representation we have (8 << (0xffffffff & 0x1f)). By evaluating the right hand operand we have (8 << 31). When 8 is shifted 31 bits to the left, the result is zero since the only non-zero bit is lost as it is shifted beyond the most significant bit of the int data type.  
+ 
+
+																						Arguments
+Question 1
+
+class GFC401 {
+  static int m1(int x) {return ++x;}
+  public static void main (String[] args) {
+    int x = 1;
+    int y = m1(x);
+    System.out.println(x + "," + y);
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: 1,1
+b. 	Prints: 1,2
+c. 	Prints: 2,1
+d. 	Prints: 2,2
+e. 	Run-time error
+f. 	Compile-time error
+g. 	None of the above
+Question 2
+
+class GRC10 {
+  public static void main (String[] s) {
+    System.out.print(s[1] + s[2] + s[3]);
+}}
+java GRC10 A B C D E F
+
+What is the result of attempting to compile and run the program using the specified command line?
+a. 	Prints: ABC
+b. 	Prints: BCD
+c. 	Prints: CDE
+d. 	Prints: A B C
+e. 	Prints: B C D
+f. 	Prints: C D E
+g. 	Compile-time error
+h. 	Run-time error
+i. 	None of the above
+Question 3
+
+class GFC402 {
+  static int x=1;
+  void m1(int i) {x++; i++;}
+  public static void main (String[] args) {
+    int y=3; m1(y);
+    System.out.println(x + "," + y);
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: 1,3
+b. 	Prints: 2,3
+c. 	Prints: 1,4
+d. 	Prints: 2,4
+e. 	Run-time error
+f. 	Compile-time error
+g. 	None of the above
+Question 4
+
+class GFC403 {
+  private static int x=1;
+  static void m1(int i) {x++; i++;}
+  public static void main (String[] args) {
+    int y=3; m1(y);
+    System.out.println(x + "," + y);
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: 1,3
+b. 	Prints: 2,3
+c. 	Prints: 1,4
+d. 	Prints: 2,4
+e. 	Run-time error
+f. 	Compile-time error
+g. 	None of the above
+Question 5
+
+class GFC404 {
+  private static int x=1;
+  static void m1(int x, int y) {x++; y++;}
+  public static void main (String[] args) {
+    int y=3; m1(x, y);
+    System.out.println(x + "," + y);
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: 1,3
+b. 	Prints: 2,3
+c. 	Prints: 1,4
+d. 	Prints: 2,4
+e. 	Run-time error
+f. 	Compile-time error
+g. 	None of the above
+Question 6
+
+class GFC301 {
+  private String name;
+  public GFC301(String name) {this.name = name;}
+  public void setName(String name) {this.name = name;}
+  public String getName() {return name;}
+  public static void m1(GFC301 r1, GFC301 r2) {
+    r1.setName("Bird");
+    r2 = r1;
+  }
+  public static void main (String[] args) {
+    GFC301 pet1 = new GFC301("Dog");
+    GFC301 pet2 = new GFC301("Cat");
+    m1(pet1,pet2);
+    System.out.println(pet1.getName() + "," + pet2.getName());
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: Dog,Cat
+b. 	Prints: Dog,Bird
+c. 	Prints: Bird,Cat
+d. 	Prints: Bird,Bird
+e. 	Run-time error
+f. 	Compile-time error
+g. 	None of the above
+Question 7
+
+class GFC303 {
+  private String name;
+  public GFC303(String name) {this.name = name;}
+  public void setName(String name) {this.name = name;}
+  public String getName() {return name;}
+  public static void m1(GFC303 pet1, GFC303 pet2) {
+    pet1 = new GFC303("Fish");
+    pet2 = null;
+  }
+  public static void main (String[] args) {
+    GFC303 pet1 = new GFC303("Dog");
+    GFC303 pet2 = new GFC303("Cat");
+    m1(pet1,pet2);
+    System.out.println(pet1.getName() + "," + pet2.getName());
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: Dog,Cat
+b. 	Prints: Dog,Fish
+c. 	Prints: Fish,Cat
+d. 	Prints: Fish,Fish
+e. 	Compile-time error
+f. 	Run-time error
+g. 	None of the above
+Question 8
+
+class GFC304 {
+  static void m1(int[] i1, int[] i2) {
+    int[] i3 = i1; i1 = i2; i2 = i3;
+  }
+  public static void main (String[] args) {
+    int[] i1 = {1}, i2 = {3}; m1(i1, i2);
+    System.out.print(i1[0] + "," + i2[0]);
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: 1,1
+b. 	Prints: 1,3
+c. 	Prints: 3,1
+d. 	Prints: 3,3
+e. 	Run-time error
+f. 	Compile-time error
+g. 	None of the above
+Question 9
+
+class GFC305 {
+  static void m1(int[] i1, int[] i2) {
+    int i = i1[0]; i1[0] = i2[0]; i2[0] = i;
+  }
+  public static void main (String[] args) {
+    int[] i1 = {1}, i2 = {3}; m1(i1, i2);
+    System.out.print(i1[0] + "," + i2[0]);
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: 1,1
+b. 	Prints: 1,3
+c. 	Prints: 3,1
+d. 	Prints: 3,3
+e. 	Run-time error
+f. 	Compile-time error
+g. 	None of the above
+Question 10
+
+class GFC306 {
+  static int[] i1 = {1}, i2 = {3};
+  static void m1(int[] i1) {
+    int[] i3 = i1; i1 = i2; i2 = i3;
+  }
+  public static void main (String[] args) {
+    m1(i1);
+    System.out.print(i1[0] + "," + i2[0]);
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: 1,1
+b. 	Prints: 1,3
+c. 	Prints: 3,1
+d. 	Prints: 3,3
+e. 	Run-time error
+f. 	Compile-time error
+g. 	None of the above
+Question 11
+
+class GFC307 {
+  static void m1(int[] i1, int[] i2) {
+    i1 = i2 = null;
+  }
+  public static void main (String[] args) {
+    int[] i1 = {1}, i2 = {3}; m1(i1, i2);
+    System.out.print(i1[0] + "," + i2[0]);
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: 0,0
+b. 	Prints: 1,1
+c. 	Prints: 1,3
+d. 	Prints: 3,1
+e. 	Prints: null,null
+f. 	Run-time error
+g. 	Compile-time error
+h. 	None of the above
+Question 12
+
+class GFC308 {
+  int[] i1 = {1}, i2 = {3};
+  void m1() {
+    m2(i1, i2);
+    System.out.print(i1[0] + "," + i2[0]);
+  }
+  void m2(int[] i1, int[] i2) {
+    int[] i3 = i1;
+    this.i1 = i2;
+    this.i2 = i3;
+  }
+  public static void main (String[] args) {
+    new GFC308().m1();
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: 0,0
+b. 	Prints: 1,1
+c. 	Prints: 1,3
+d. 	Prints: 3,1
+e. 	Prints: null,null
+f. 	Run-time error
+g. 	Compile-time error
+h. 	None of the above
+
+No.	Answer	Remark
+1	b  	Prints: 1,2  	Primitive arguments are passed by value. The method m1 increments the parameter x, and the result is returned. The local variable x of main remains unchanged.  
+2	b  	Prints: BCD  	The index for the first element of an array is zero so the first argument printed by this program is the second argument on the command line following the name of the class.  
+3	f  	Compile-time error  	Method m1 is an instance method, and must be invoked with reference to an instance of type GFC402. Method m1 can not be invoked from a static context.  
+4	b  	Prints: 2,3  	Variables of primitive type are passed to methods by value: Only a copy of the value of the variable is passed to the method. While the method works with a local copy of the variable, the original variable remains unchanged by any actions performed on the method parameter. For that reason, method m1 does not change the value of the variable y in the main method. However, method m1 does have direct access to the class variable x and the content of the class variable is modified by method m1.  
+5	a  	Prints: 1,3  	Variables of primitive type are passed to methods by value: Only a copy of the value of the variable is passed to the method. While the method works with a local copy of the variable, the original variable remains unchanged by any actions performed on the method parameter. For that reason, method m1 does not change the contents of the variable y in the main method or the class variable x.  
+6	c  	Prints: Bird,Cat  	The method m1 is invoked by the method invocation expression m1(pet1,pet2). The value of the reference variable denoted by the argument pet1 is used to initialize the method parameter r1. Inside of method m1, the method invocation expression r1.setName("Bird") uses the copy of the value of the argument pet1 to assign a new name to the instance of GFC301 that is referenced by the local variable pet1 in the main method. Generally speaking, a reference parameter can be used to invoke methods on the referenced object and change the state of the object to the extent provided by the object's methods. The method invocation expression m1(pet1,pet2) has a second argument pet2, and the value of pet2 is used to initialize the method parameter r2. Inside of method m1, the assignment expression r2 = r1 changes the value of the method parameter r2; but the local variable of the main method denoted by the argument pet2 appearing in the method invocation expression m1(pet1,pet2) remains unchanged.  
+7	a  	Prints: Dog,Cat  	The method m1 is invoked by the method invocation expression m1(pet1,pet2). A copy of the reference argument pet1 is assigned to the method parameter pet1. Inside the body of method m1, the assignment expression pet1 = new GFC303("Fish") assigns a reference to a new instance of GFC303 to the method parameter pet1; but the argument pet1 that appears in the method invocation expression m1(pet1,pet2) and the local variable pet1 that is declared in the main method remain unchanged. The method invocation expression m1(pet1,pet2) has a second argument pet2, and a copy of pet2 is assigned to the method parameter pet2. Inside of method m1, the assignment expression pet2 = null changes the value of the method parameter pet2; but the argument pet2 appearing in the method invocation expression remains unchanged in the main method.  
+8	b  	Prints: 1,3  	The method m1 is invoked by the method invocation expression m1(i1, i2). The argument i1 denotes a local variable of type int[] that is declared in the main method. The value of the argument is a reference to the array, and the argument value is used to initialize the method parameter i1 of method m1. Inside the body of m1, the expression i1 = i2 sets the value of parameter i1 to the value of parameter i2, but the change in the value of the parameter i1 does not change the original argument value or the local variable i1 of the main method that the argument denotes. Similarly, the assignment expression i2 = i3 in method m1 does not change the value of the local variable i1 declared in the main method.  
+9	c  	Prints: 3,1  	Method m1 is not able to change the value of the local variables that are declared in the main method and serve as the arguments in the method invocation expression. However, method m1 is able to modify the contents of the arrays that are referenced by the method parameters.  
+10	a  	Prints: 1,1  	The method m1 is invoked by the method invocation expression m1(i1). The argument i1 denotes the static member variable i1. Inside the declaration of method m1, the method parameter i1 shadows the static member variable i1. The assignment expression i1 = i2 assigns the value of the member variable i2 to the method parameter i1, but the member variable i1 remains unchanged. Inside of method m1, the member variable i2 is not shadowed; so the assignment expression i2 = i3 assigns the reference value contained by the method local variable i3 to the member variable i2. This question demonstrates that argument values are passed to method parameters by value, and the method parameter is only a copy of the argument value. A change made to the method parameter does not change the value of any variable that is shadowed by the parameter and does not change the value of the argument appearing in the method invocation expression.  
+11	c  	Prints: 1,3  	Although the reference parameters i1 and i2 are reassigned inside of m1, the change has no impact outside of m1. Array references are passed by value: the invoked method gets a copy of the array reference.  
+12	d  	Prints: 3,1  	Inside of method m2, the local variables i1 and i2 remain unchanged while the shadowed instance variables are changed.  
+
+							Exception Handling
+Question 1
+
+class A {
+  public static void main (String[] args) {
+    Error error = new Error();
+    Exception exception = new Exception();
+    System.out.print((exception instanceof Throwable) + ",");
+    System.out.print(error instanceof Throwable);
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: false,false
+b. 	Prints: false,true
+c. 	Prints: true,false
+d. 	Prints: true,true
+e. 	Compile-time error
+f. 	Run-time error
+g. 	None of the above
+Question 2
+
+class A {A() throws Exception {}} // 1
+class B extends A {B() throws Exception {}} // 2
+class C extends A {C() {}} // 3 
+
+Which of the following statements are true?
+a. 	class A extends Object.
+b. 	Compile-time error at 1.
+c. 	Compile-time error at 2.
+d. 	Compile-time error at 3.
+Question 3
+
+class A {
+  public static void main (String[] args) {
+    Object error = new Error();
+    Object runtimeException = new RuntimeException();
+    System.out.print((error instanceof Exception) + ",");
+    System.out.print(runtimeException instanceof Exception);
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: false,false
+b. 	Prints: false,true
+c. 	Prints: true,false
+d. 	Prints: true,true
+e. 	Compile-time error
+f. 	Run-time error
+g. 	None of the above
+Question 4
+
+class Level1Exception extends Exception {}
+class Level2Exception extends Level1Exception {}
+class Level3Exception extends Level2Exception {}
+class Purple {
+  public static void main(String args[]) {
+    int a,b,c,d,f,g,x;
+    a = b = c = d = f = g = 0;
+    x = 1;
+    try {
+      try {
+        switch (x) {
+          case 1: throw new Level1Exception();
+          case 2: throw new Level2Exception();
+          case 3: throw new Level3Exception();
+      } a++; }
+      catch (Level2Exception e) {b++;}
+      finally {c++;}
+    }
+    catch (Level1Exception e) { d++;}
+    catch (Exception e) {f++;}
+    finally {g++;}
+    System.out.print(a+","+b+","+c+","+d+","+f+","+g);
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: 0,0,0,1,0,0
+b. 	Prints: 0,0,1,1,0,1
+c. 	Prints: 0,1,1,1,0,1
+d. 	Prints: 1,0,1,1,0,1
+e. 	Prints: 1,1,1,1,0,1
+f. 	Compile-time error
+g. 	Run-time error
+h. 	None of the above
+Question 5
+
+class Level1Exception extends Exception {}
+class Level2Exception extends Level1Exception {}
+class Level3Exception extends Level2Exception {}
+class Purple {
+  public static void main(String args[]) {
+    int a,b,c,d,f,g,x;
+    a = b = c = d = f = g = 0;
+    x = 2;
+    try {
+      try {
+        switch (x) {
+          case 1: throw new Level1Exception();
+          case 2: throw new Level2Exception();
+          case 3: throw new Level3Exception();
+      } a++; }
+      catch (Level2Exception e) {b++;}
+      finally {c++;}
+    }
+    catch (Level1Exception e) { d++;}
+    catch (Exception e) {f++;}
+    finally {g++;}
+    System.out.print(a+","+b+","+c+","+d+","+f+","+g);
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: 0,0,1,0,0,1
+b. 	Prints: 0,1,0,0,0,0
+c. 	Prints: 0,1,1,0,0,1
+d. 	Prints: 0,1,0,0,0,1
+e. 	Prints: 1,1,1,0,0,1
+f. 	Compile-time error
+g. 	Run-time error
+h. 	None of the above
+Question 6
+
+class Level1Exception extends Exception {}
+class Level2Exception extends Level1Exception {}
+class Level3Exception extends Level2Exception {}
+class Purple {
+  public static void main(String args[]) {
+    int a,b,c,d,f,g,x;
+    a = b = c = d = f = g = 0;
+    x = 3;
+    try {
+      try {
+        switch (x) {
+          case 1: throw new Level1Exception();
+          case 2: throw new Level2Exception();
+          case 3: throw new Level3Exception();
+      } a++; }
+      catch (Level2Exception e) {b++;}
+      finally {c++;}
+    }
+    catch (Level1Exception e) { d++;}
+    catch (Exception e) {f++;}
+    finally {g++;}
+    System.out.print(a+","+b+","+c+","+d+","+f+","+g);
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: 1,1,1,0,0,1
+b. 	Prints: 0,1,1,0,0,1
+c. 	Prints: 0,1,0,0,0,0
+d. 	Prints: 0,1,0,0,0,1
+e. 	Prints: 0,0,1,0,0,1
+f. 	Compile-time error
+g. 	Run-time error
+h. 	None of the above
+Question 7
+
+class Level1Exception extends Exception {}
+class Level2Exception extends Level1Exception {}
+class Level3Exception extends Level2Exception {}
+class Purple {
+  public static void main(String args[]) {
+    int a,b,c,d,f,g,x;
+    a = b = c = d = f = g = 0;
+    x = 4;
+    try {
+      try {
+	switch (x) {
+          case 1: throw new Level1Exception();
+          case 2: throw new Level2Exception();
+          case 3: throw new Level3Exception();
+          case 4: throw new Exception();
+      } a++; }
+      catch (Level2Exception e) {b++;}
+      finally{c++;}
+    }
+    catch (Level1Exception e) { d++;}
+    catch (Exception e) {f++;}
+    finally {g++;}
+    System.out.print(a+","+b+","+c+","+d+","+f+","+g);
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: 0,0,0,0,0,1
+b. 	Prints: 0,0,0,0,1,0
+c. 	Prints: 0,0,1,0,0,1
+d. 	Prints: 0,0,1,0,1,1
+e. 	Prints: 0,1,1,1,1,1
+f. 	Prints: 1,1,1,1,1,1
+g. 	Compile-time error
+h. 	Run-time error
+i. 	None of the above
+Question 8
+
+class Level1Exception extends Exception {}
+class Level2Exception extends Level1Exception {}
+class Level3Exception extends Level2Exception {}
+class Purple {
+  public static void main(String args[]) {
+    int a,b,c,d,f,g,x;
+    a = b = c = d = f = g = 0;
+    x = 5;
+    try {
+      try {
+	switch (x) {
+          case 1: throw new Level1Exception();
+          case 2: throw new Level2Exception();
+          case 3: throw new Level3Exception();
+          case 4: throw new Exception();
+      } a++; }
+      catch (Level2Exception e) {b++;}
+      finally {c++;}
+    }
+    catch (Level1Exception e) { d++;}
+    catch (Exception e) {f++;}
+    finally {g++;}
+    System.out.print(a+","+b+","+c+","+d+","+f+","+g);
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: 1,0,0,0,0,0
+b. 	Prints: 1,0,1,0,0,1
+c. 	Prints: 0,0,1,0,0,1
+d. 	Prints: 1,1,1,1,1,1
+e. 	Compile-time error
+f. 	Run-time error
+g. 	None of the above
+Question 9
+
+class ColorException extends Exception {}
+class WhiteException extends ColorException {}
+class White {
+  void m1() throws ColorException {throw new WhiteException();}
+  void m2() throws WhiteException {}
+  public static void main (String[] args) {
+    White white = new White();
+    int a,b,d,f; a = b = d = f = 0;
+    try {white.m1(); a++;} catch (ColorException e) {b++;}
+    try {white.m2(); d++;} catch (WhiteException e) {f++;}
+    System.out.print(a+","+b+","+d+","+f);
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: 0,1,0,0
+b. 	Prints: 1,1,0,0
+c. 	Prints: 0,1,1,0
+d. 	Prints: 1,1,1,0
+e. 	Prints: 1,1,1,1
+f. 	Compile-time error
+g. 	Run-time error
+h. 	None of the above
+Question 10
+
+class ColorException extends Exception {}
+class WhiteException extends ColorException {}
+class White {
+  void m1() throws ColorException {throw new ColorException();}
+  void m2() throws WhiteException {throw new ColorException();}
+  public static void main (String[] args) {
+    White white = new White();
+    int a,b,d,f; a = b = d = f = 0;
+    try {white.m1(); a++;} catch (ColorException e) {b++;}
+    try {white.m2(); d++;} catch (WhiteException e) {f++;}
+    System.out.print(a+","+b+","+d+","+f);
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: 0,1,0,0
+b. 	Prints: 1,1,0,1
+c. 	Prints: 0,1,0,1
+d. 	Prints: 0,1,1,1
+e. 	Prints: 1,1,1,1
+f. 	Compile-time error
+g. 	Run-time error
+h. 	None of the above
+Question 11
+
+class ColorException extends Exception {}
+class WhiteException extends ColorException {}
+class White {
+  void m1() throws ColorException {throw new ColorException();}
+  void m2() throws WhiteException {throw new WhiteException();}
+  public static void main (String[] args) {
+    White white = new White();
+    int a,b,d,f; a = b = d = f = 0;
+    try {white.m1(); a++;} catch (WhiteException e) {b++;}
+    try {white.m2(); d++;} catch (WhiteException e) {f++;}
+    System.out.print(a+","+b+","+d+","+f);
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: 0,1,0,0
+b. 	Prints: 1,1,0,1
+c. 	Prints: 0,1,0,1
+d. 	Prints: 0,1,1,1
+e. 	Prints: 1,1,1,1
+f. 	Compile-time error
+g. 	Run-time error
+h. 	None of the above
+Question 12
+
+class Level1Exception extends Exception {}
+class Level2Exception extends Level1Exception {}
+class Level3Exception extends Level2Exception {}
+class Brown {
+  public static void main(String args[]) {
+    int a, b, c, d, f; a = b = c = d = f = 0;
+    int x = 1;
+    try {
+      switch (x) {
+        case 1: throw new Level1Exception();
+        case 2: throw new Level2Exception();
+        case 3: throw new Level3Exception();
+    } a++; }
+    catch (Level3Exception e) {b++;}
+    catch (Level2Exception e) {c++;}
+    catch (Level1Exception e) {d++;}
+    finally {f++;}
+    System.out.print(a+","+b+","+c+","+d+","+f);
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: 0,0,0,1,1
+b. 	Prints: 0,0,1,1,1
+c. 	Prints: 0,1,1,1,1
+d. 	Prints: 1,1,1,1,1
+e. 	Prints: 0,0,1,0,1
+f. 	Prints: 0,1,0,0,1
+g. 	Prints: 1,0,0,0,1
+h. 	Compile-time error
+i. 	Run-time error
+j. 	None of the above
+Question 13
+
+class Level1Exception extends Exception {}
+class Level2Exception extends Level1Exception {}
+class Level3Exception extends Level2Exception {}
+class Brown {
+  public static void main(String args[]) {
+    int a, b, c, d, f; a = b = c = d = f = 0;
+    int x = 2;
+    try {
+      switch (x) {
+        case 1: throw new Level1Exception();
+        case 2: throw new Level2Exception();
+        case 3: throw new Level3Exception();
+    } a++; }
+    catch (Level3Exception e) {b++;}
+    catch (Level2Exception e) {c++;}
+    catch (Level1Exception e) {d++;}
+    finally {f++;}
+    System.out.print(a+","+b+","+c+","+d+","+f);
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: 0,0,0,1,1
+b. 	Prints: 0,0,1,1,1
+c. 	Prints: 0,1,1,1,1
+d. 	Prints: 1,1,1,1,1
+e. 	Prints: 0,0,1,0,1
+f. 	Prints: 0,1,0,0,1
+g. 	Prints: 1,0,0,0,1
+h. 	Compile-time error
+i. 	Run-time error
+j. 	None of the above
+Question 14
+
+class Level1Exception extends Exception {}
+class Level2Exception extends Level1Exception {}
+class Level3Exception extends Level2Exception {}
+class Brown {
+  public static void main(String args[]) {
+    int a, b, c, d, f; a = b = c = d = f = 0;
+    int x = 4;
+    try {
+      switch (x) {
+        case 1: throw new Level1Exception();
+        case 2: throw new Level2Exception();
+        case 3: throw new Level3Exception();
+    } a++; }
+    catch (Level3Exception e) {b++;}
+    catch (Level2Exception e) {c++;}
+    catch (Level1Exception e) {d++;}
+    finally {f++;}
+    System.out.print(a+","+b+","+c+","+d+","+f);
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: 0,0,0,1,1
+b. 	Prints: 0,0,1,1,1
+c. 	Prints: 0,1,1,1,1
+d. 	Prints: 1,1,1,1,1
+e. 	Prints: 0,0,1,0,1
+f. 	Prints: 0,1,0,0,1
+g. 	Prints: 1,0,0,0,1
+h. 	Compile-time error
+i. 	Run-time error
+j. 	None of the above
+Question 15
+
+class ColorException extends Exception {}
+class WhiteException extends ColorException {}
+abstract class Color {
+  abstract void m1() throws ColorException;
+}
+class White extends Color {
+  void m1() throws WhiteException {throw new WhiteException();}
+  public static void main (String[] args) {
+    White white = new White();
+    int a,b,c; a = b = c = 0;
+    try {white.m1(); a++;} 
+      catch (WhiteException e) {b++;}
+      finally {c++;}
+    System.out.print(a+","+b+","+c);
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: 0,0,0
+b. 	Prints: 0,0,1
+c. 	Prints: 0,1,0
+d. 	Prints: 0,1,1
+e. 	Prints: 1,0,0
+f. 	Prints: 1,0,1
+g. 	Prints: 1,1,0
+h. 	Prints: 1,1,1
+i. 	Compile-time error
+j. 	Run-time error
+k. 	None of the above
+Question 16
+
+class RedException extends Exception {}
+class BlueException extends Exception {}
+class White {
+  void m1() throws RedException {throw new RedException();}
+  public static void main (String[] args) {
+    White white = new White();
+    int a,b,c,d; a = b = c = d = 0;
+    try {white.m1(); a++;}
+      catch (RedException e) {b++;}
+      catch (BlueException e) {c++;}
+      finally {d++;}
+    System.out.print(a+","+b+","+c+","+d);
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: 0,1,0,0
+b. 	Prints: 1,1,0,1
+c. 	Prints: 0,1,0,1
+d. 	Prints: 0,1,1,1
+e. 	Prints: 1,1,1,1
+f. 	Compile-time error
+g. 	Run-time error
+h. 	None of the above
+Question 17
+
+class Level1Exception extends Exception {}
+class Level2Exception extends Level1Exception {}
+class Level3Exception extends Level2Exception {}
+class Purple {
+  public static void main(String args[]) {
+    int a,b,c,d,f,g,x;
+    a = b = c = d = f = g = 0;
+    x = 1;
+    try {
+      throw new Level1Exception();
+      try {
+        switch (x) {
+          case 1: throw new Level1Exception();
+          case 2: throw new Level2Exception();
+          case 3: throw new Level3Exception();
+      } a++; }
+      catch (Level2Exception e) {b++;}
+      finally {c++;}
+    }
+    catch (Level1Exception e) { d++;}
+    catch (Exception e) {f++;}
+    finally {g++;}
+    System.out.print(a+","+b+","+c+","+d+","+f+","+g);
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: 1,1,1,0,0,1
+b. 	Prints: 0,1,1,0,0,1
+c. 	Prints: 0,1,0,0,0,0
+d. 	Prints: 0,1,0,0,0,1
+e. 	Prints: 0,0,1,0,0,1
+f. 	Compile-time error
+g. 	Run-time error
+h. 	None of the above
+
+
+No.	Answer	Remark
+1	d  	Prints: true,true  	Both Error and Exception are subclasses of Throwable.  
+2	a  d  	class A extends Object.  Compile-time error at 3.  	The constructors for class B and class C both invoke the constructor for A. The constructor for class A declares Exception in the throws clause. Since the constructors for B and C invoke the constructor for A, it is necessary to declare Exception in the throws clauses of B and C. A compile-time error is generated at marker 3, because the constructor does not declare Exception in the throws clause.  
+3	b  	Prints: false,true  	Error is a direct subclass of Throwable. RuntimeException is a direct subclass of Exception.  
+4	b  	Prints: 0,0,1,1,0,1  	The nested catch clause is able to catch a Level2Exception or any subclass of it. The switch statement throws a Level1Exception that can not be caught by the nested catch clause; so the nested finally block is executed as control passes to the first of the two outer catch clauses. The outer finally block is executed as control passes out of the try statement.  
+5	c  	Prints: 0,1,1,0,0,1  	The nested catch block is able to catch a Level2Exception or any subclass of it causing b to be incremented. Both of the finally blocks are then executed.  
+6	b  	Prints: 0,1,1,0,0,1  	The nested catch block is able to catch a Level2Exception or any subclass of it causing b to be incremented. Both of the finally blocks are then executed.  
+7	d  	Prints: 0,0,1,0,1,1  	The nested catch clause is able to catch a Level2Exception or any subclass of it. The switch statement throws an Exception that can not be caught by the nested catch clause; so the nested finally block is executed as control passes to the second of the two outer catch clauses. The outer finally block is executed as control passes out of the try statement.  
+8	b  	Prints: 1,0,1,0,0,1  	The switch statement does not throw an exception; so the switch completes normally. The subsequent statement increments the variable, a; and the try block completes normally. Both of the finally blocks are then executed.  
+9	c  	Prints: 0,1,1,0  	The first try block contains two statements. The first invokes method m1, and the subsequent statement contains a post increment expression with the variable, a, as the operand. Method m1 throws a WhiteException exception, so variable a is not incremented as control passes to the catch block where b is incremented. The throws clause of m1 declares a ColorException, so the body may throw a ColorException or any subclass of ColorException. The second try block also contains two statements. The first invokes method m2, and the subsequent statement contains a post increment expression with the variable, d, as the operand. Method m2 does not throw an exception, so d is incremented, and the try block completes normally. Although the throws clause of m2 declares a WhiteException, there is no requirement to throw any exception.  
+10	f  	Compile-time error  	The throws clause of White.m2 declares a WhiteException, so the body of m2 may throw a WhiteException or any subclass of WhiteException. Instead, the body of m2 throws a superclass of WhiteException. The result is a compile-time error.  
+11	f  	Compile-time error  	The throws clause of White.m1 declares a ColorException, but the catch clause in the main method catches only a subclass of ColorException. The result is a compile-time error.  
+12	a  	Prints: 0,0,0,1,1  	The first catch clause has a parameter e of type Level3Exception, so the first catch clause is able to catch any exception type that is assignable to type Level3Exception. Since Level2Exception is the superclass of Level3Exception, an instance of Level2Exception is not assignable to a catch clause parameter of type Level3Exception. Similarly, Level1Exception is also a superclass of Level3Exception, so an instance of Level1Exception is not assignable to a catch clause parameter of type Level3Exception. The only exception type that can be caught by the first catch clause is a Level3Exception. The second catch clause has a parameter e of type Level2Exception, so the second catch clause is able to catch a Level2Exception. The Level1Exception is the superclass of Level2Exception. An instance of Level1Exception is not assignable to a catch clause parameter of type Level2Exception, so the second catch clause can not catch a Level1Exception. Since a Level3Exception is a subclass of Level2Exception an exception of type Level3Exception is assignable to a catch clause parameter type Level2Exception. All exceptions of type Level3Exception will be caught by the first catch clause, so the second catch clause in this program will not have an opportunity to catch a Level3Exception. The third catch clause has a parameter e of type Level1Exception, so the third catch clause is able to catch a Level1Exception. The exceptions of type Level2Exception and Level3Exception are assignable to the catch clause parameter of the third catch clause, but the exceptions of those subclass types will be caught by the first two catch clauses. The switch statement throws a Level1Exception. The try block completes abruptly as control passes to the third catch block where d is incremented. The finally block is also executed, so f is incremented.  
+13	e  	Prints: 0,0,1,0,1  	The first catch block is able to catch a Level3Exception or any subclass of Level3Exception. The second catch block is able to catch a Level2Exception or any subclass of Level2Exception. The switch statement throws a Level2Exception. The try block completes abruptly as control passes to the second catch block where c is incremented. The finally block is also executed, so f is incremented.  
+14	g  	Prints: 1,0,0,0,1  	The switch statement does not throw an exception; so the switch completes normally. The subsequent statement increments the variable, a; and the try block completes normally. The finally block is also executed, so f is incremented.  
+15	d  	Prints: 0,1,1  	The try block contains two statements. The first invokes method m1, and the subsequent statement contains a post increment expression with the variable, a, as the operand. Method m1 throws a WhiteException exception, so variable a is not incremented as control passes to the catch block where b is incremented. Although Color.m1 declares a ColorException in the throws clause, a subclass of Color is free to declare only a subclass of ColorException in the throws clause of the overriding method.  
+16	f  	Compile-time error  	A compile-time error is generated, because the second catch clause attempts to catch an exception that is never thrown in the try block.  
+17	f  	Compile-time error  	A throw statement is the first statement in the outer try block. A throw statement appearing in a try block causes control to pass out of the block. Consequently, statements can not be reached if they appear in the block after the throw statement. The switch statement that appears after the throw statement is unreachable and results in a compile-time error.  
+ 
+						Interfaces	
+
+Question 1
+
+interface A {
+  void m1();            // 1
+  public void m2();     // 2
+  protected void m3();  // 3
+  private void m4();    // 4
+}
+
+Compile-time errors are generated at which lines?
+a. 	1
+b. 	2
+c. 	3
+d. 	4
+Question 2
+
+Which of the following statements is not true?
+a. 	An interface that is declared within the body of a class or interface is known as a nested interface.
+b. 	A constant can be a member of an interface.
+c. 	A class declaration can be a member of an interface.
+d. 	If an interface is named in the implements clause of a class, then the class must implement all of the methods declared within the interface.
+e. 	None of the above.
+Question 3
+
+Which of the following statements are true?
+a. 	An interface declaration can be a member of an interface.
+b. 	A method declared within an interface must have a body represented by empty curly braces.
+c. 	An interface can implement another interface.
+d. 	An abstract class that implements an interface must implement all abstract methods declared within the interface.
+e. 	An abstract method declaration can be a member of an interface.
+Question 4
+
+Which of the following are modifiers that can be applied to an interface that is a member of a directly enclosing interface?
+a. 	abstract
+b. 	implements
+c. 	final
+d. 	private
+e. 	protected
+f. 	public
+Question 5
+
+Which of the following are modifiers that can be applied to an interface that is a member of a directly enclosing class?
+a. 	abstract
+b. 	extends
+c. 	final
+d. 	private
+e. 	protected
+f. 	public
+Question 6
+
+Which of the following is a modifier that can be applied to an interface that is a member of a directly enclosing class or interface?
+a. 	static
+b. 	synchronized
+c. 	transient
+d. 	volatile
+e. 	implements
+f. 	None of the above.
+Question 7
+
+Suppose that an interface, I1, is not a member of an enclosing class or interface. Which of the following modifiers can be applied to interface I1?
+a. 	abstract
+b. 	final
+c. 	private
+d. 	protected
+e. 	public
+Question 8
+
+Suppose that an interface, I1, is not a member of an enclosing class or interface. Which of the following modifiers can be applied to interface I1?
+a. 	abstract
+b. 	public
+c. 	static
+d. 	synchronized
+e. 	transient
+f. 	volatile
+Question 9
+
+Which of the following are modifiers that can be applied to a field declaration within an interface?
+a. 	abstract
+b. 	const
+c. 	final
+d. 	private
+e. 	protected
+f. 	public
+Question 10
+
+Which of the following is a modifier that can be applied to a field declaration within an interface?
+a. 	static
+b. 	synchronized
+c. 	transient
+d. 	volatile
+e. 	None of the above.
+Question 11
+
+Which of the following modifiers can be applied to a class that is declared within an enclosing interface?
+a. 	public
+b. 	protected
+c. 	private
+d. 	abstract
+e. 	static
+f. 	final
+Question 12
+
+interface A {
+  int a = 1;                        // 1
+  public int b = 2;                 // 2
+  public static int c = 3;          // 3
+  public static final int d = 4;    // 4
+}
+
+Which field declaration results in a compile-time error?
+a. 	1
+b. 	2
+c. 	3
+d. 	4
+e. 	None of the above
+Question 13
+
+interface A {  
+  protected int e = 5;              // 1
+  private int f = 6;                // 2
+  volatile int g = 7;               // 3
+  transient int h = 8;              // 4
+  public static final int d = 9;    // 5
+}
+
+Which of the field declarations does not result in a compile-time error?
+a. 	1
+b. 	2
+c. 	3
+d. 	4
+e. 	5
+f. 	None of the above
+Question 14
+
+Which of the following are modifiers that can be applied to a method declaration within an interface?
+a. 	abstract
+b. 	final
+c. 	private
+d. 	protected
+e. 	public
+Question 15
+
+Which of the following is a modifier that can be applied to a method declaration within an interface?
+a. 	static
+b. 	synchronized
+c. 	transient
+d. 	volatile
+e. 	native
+f. 	None of the above
+Question 16
+
+interface A {void m1();}                      // 1
+class B implements A {public void m1() {}}    // 2
+class C implements A {protected void m1() {}} // 3
+class D implements A {private void m1() {}}   // 4
+class E implements A {void m1() {}}           // 5 
+
+Compile-time errors are generated at which lines?
+a. 	1
+b. 	2
+c. 	3
+d. 	4
+e. 	5
+Question 17
+
+interface A {
+  void m1();              // 1
+  public void m2();       // 2
+  protected void m3();    // 3
+  private void m4();      // 4
+  abstract void m5();     // 5
+}
+
+Compile-time errors are generated at which lines?
+a. 	1
+b. 	2
+c. 	3
+d. 	4
+e. 	5
+Question 18
+
+interface A {
+  final void m1();        // 1
+  synchronized void m2(); // 2
+  native void m3();       // 3
+  abstract void m4();     // 4 
+  public void m5();       // 5
+}
+
+Compile-time errors are generated at which lines?
+a. 	1
+b. 	2
+c. 	3
+d. 	4
+e. 	5
+Question 19
+
+interface A {void main(String[] args);}               // 1
+interface B {public void main(String[] args);}        // 2
+interface C {public static void main(String[] args);} // 3
+interface D {protected void main(String[] args);}     // 4
+interface E {private void main(String[] args);}       // 5 
+
+Which interface declarations generate a Compile-time error?
+a. 	1
+b. 	2
+c. 	3
+d. 	4
+e. 	5
+Question 20
+
+interface F {abstract void main(String[] args);}      // 1
+interface G {synchronized void main(String[] args);}  // 2
+interface H {final void main(String[] args);}         // 3
+interface I {native void main(String[] args);}        // 4 
+
+Which interface declaration does not generate a compile-time error?
+a. 	1
+b. 	2
+c. 	3
+d. 	4
+e. 	None of the above
+Question 21
+
+interface A {String s1 = "A"; String m1();}
+interface B implements A {String s1 = "B"; String m1();}
+class C implements B {
+  public String m1() {return s1;}
+  public static void main(String[] args) {
+    A a = new C(); System.out.print(a.m1());
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: A
+b. 	Prints: B
+c. 	Compile-time error
+d. 	Run-time error
+e. 	None of the above
+Question 22
+
+interface A {int i = 1; int m1();}
+interface B extends A {int i = 10; int m1();}
+class C implements B {
+  public int m1() {return ++i;}
+  public static void main(String[] args) {
+    System.out.print(new C().m1());
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: 2
+b. 	Prints: 11
+c. 	Compile-time error
+d. 	Run-time error
+e. 	None of the above
+Question 23
+
+interface Z {void m1();}  // 1
+class A implements Z {void m1() {}} // 2
+class B implements Z {public void m1() {}} // 3
+abstract class C implements Z {public abstract void m1();} // 4
+
+A Compile-time error is generated at which line?
+a. 	1
+b. 	2
+c. 	3
+d. 	4
+e. 	None of the above
+Question 24
+
+interface Z {void m1();}  // 1
+class D implements Z {public final void m1() {}}    // 2
+class E implements Z {public synchronized void m1() {}} // 3
+class G implements Z {public native void m1();}     // 4
+
+A Compile-time error is generated at which line?
+a. 	1
+b. 	2
+c. 	3
+d. 	4
+e. 	None of the above
+Question 25
+
+interface I10 {String name = "I10"; String s10 = "I10.s10";}
+interface I20 {String name = "I20"; String s20 = "I20.s20";}
+class C10 implements I10, I20 {            // 1
+  public static void main(String[] args) {
+    System.out.print(s10+",");             // 2
+    System.out.print(s20+",");             // 3
+    System.out.print(name);                // 4
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: I10.s10,I20.s20,I10
+b. 	Prints: I10.s10,I20.s20,I20
+c. 	Prints: I10.s10,I20.s20,
+d. 	Prints: I10.s10,I20.s20,null
+e. 	Compile-time error at line 1
+f. 	Compile-time error at line 2
+g. 	Compile-time error at line 3
+h. 	Compile-time error at line 4
+i. 	Run-time error
+j. 	None of the above
+Question 26
+
+interface I10 {String name = "I10"; String s10 = "I10.s10";}
+interface I20 {String name = "I20"; String s20 = "I20.s20";}
+class C20 implements I10, I20 {         // 1
+  public static void main(String[] args) {
+    System.out.print(I10.s10+",");      // 2
+    System.out.print(I20.s20+",");      // 3
+    System.out.print(I20.name);         // 4
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: I10.s10,I20.s20,I10
+b. 	Prints: I10.s10,I20.s20,I20
+c. 	Prints: I10.s10,I20.s20,
+d. 	Prints: I10.s10,I20.s20,null
+e. 	Compile-time error at line 1
+f. 	Compile-time error at line 2
+g. 	Compile-time error at line 3
+h. 	Compile-time error at line 4
+i. 	Run-time error
+j. 	None of the above
+
+No.	Answer	Remark
+1	c  d  	3  4  	Methods declared within an interface are implicitly public. If no access modifier is included in the method declaration; then, the declaration is implicitly public. An attempt to declare the method using a weaker access privilege, private or protected, results in a compile-time error.  
+2	d  	If an interface is named in the implements clause of a class, then the class must implement all of the methods declared within the interface.  	This question asks which answer option is not true. Some true statements are as follows. An interface can be declared within an enclosing class or interface. The members of an interface can be constants, abstract method declarations, class declarations or interface declarations. If an interface is named in the implements clause of a class, then the class must implement all of the methods declared within the interface or the class must be declared abstract. The untrue answer option did not mention that an abstract class is not required to implement any of the methods declared in an interface that is named in the implements clause of the class declaration.  
+3	a  e  	An interface declaration can be a member of an interface.  An abstract method declaration can be a member of an interface.  	An interface can be declared within an enclosing class or interface. The members of an interface can be constants, abstract method declarations, class declarations, or interface declarations. The body of a method declared within an interface is a semicolon. An interface can extend another interface, but can not implement an interface. An abstract class that has an interface, I1, in its implements clause is not required to implement any of the methods declared within I1.  
+4	a  f  	abstract  public  	All interfaces are implicitly abstract. The explicit application of the abstract modifier to an interface declaration is redundant and is strongly discouraged. The declaration of an interface within the body of an enclosing class or interface is called a member type declaration. Every member type declaration appearing within the body of a directly enclosing interface is implicitly static and public. Use of the access modifiers, private or protected, is contradictory and results in a compile-time error. In contrast, the modifiers, private and protected, are applicable to a member type declaration appearing within the body of a directly enclosing class. The modifier, final, is never applicable to an interface. The keyword, implements, is not a modifier.  
+5	a  d  e  f  	abstract  private  protected  public  	All interfaces are implicitly abstract. The explicit application of the modifier, abstract, to an interface is redundant and is strongly discouraged. The declaration of an interface within the body of an enclosing class or interface is called a member type declaration. The private, protected and static modifiers are applicable to a member type declaration that appears in the body of a directly enclosing class. In contrast, the modifiers, private and protected, are not applicable to a member type declaration appearing within the body of a directly enclosing interface. The modifier, final, is never applicable to an interface. The keyword, extends, is not a modifier.  
+6	a  	static  	A member interface is always implicitly static. The modifier, static, can not be applied to an interface that is not a member interface. The modifier, synchronized, is applicable to a concrete implementation of a method, but is not applicable to any interface. The modifiers, volatile and transient, are only applicable to variables that are members of a class. The keyword, implements, is not a modifier.  
+7	a  e  	abstract  public  	The modifier, abstract, is applicable to an interface declaration, but its use is strongly discouraged; because every interface is implicitly abstract. An interface can not be final. The modifiers, private and protected, are applicable only to an interface declaration that is a member of a directly enclosing class declaration. If an interface is not a member of a directly enclosing class, or if the interface is a member of a directly enclosing interface; then, the modifiers, private and protected, are not applicable. If an interface is declare public, then the compiler will generate an error if the class is not stored in a file that has the same name as the interface plus the extension .java.  
+8	a  b  	abstract  public  	The modifier, abstract, is applicable to an interface declaration, but its use is strongly discouraged; because every interface is implicitly abstract. If an interface is declare public, then the compiler will generate an error if the class is not stored in a file that has the same name as the interface plus the extension .java. The modifier, static, is applicable to a member interface, but not to an interface that is not nested. The modifier, synchronized, is applicable only to concrete implementations of methods. The modifiers, transient and volatile, are applicable only to variables.  
+9	c  f  	final  public  	The modifier, abstract, is not applicable to a variable. All field declarations within an interface are implicitly public, static and final. Use of those modifiers is redundant but legal. Although const is a Java keyword, it is not currently used by the Java programming language. An interface member can never be private or protected.  
+10	a  	static  	All field declarations within an interface are implicitly public, static and final. Use of these modifiers is redundant but legal. A field that is declared final can not also be declared volatile; so a field of an interface can not be declared volatile. The modifier, synchronized, is never applicable to a field.  
+11	a  d  e  f  	public  abstract  static  final  	A class that is declared within an enclosing interface is implicitly public and static; so the access modifiers, protected and private, are not applicable.  
+12	e  	None of the above  	All field declarations within an interface are implicitly public, static and final. Use of these modifiers is redundant but legal. No other modifiers can be applied to a field declaration within an interface.  
+13	e  	5  	All field declarations within an interface are implicitly public, static and final. Use of these modifiers is redundant but legal. No other modifiers can be applied to a field declaration within an interface.  
+14	a  e  	abstract  public  	All methods declared within an interface are implicitly abstract and public. Although the abstract and public modifiers can legally be applied to a method declaration in an interface, the usage is redundant and is discouraged. An abstract method can not also be declared private, static, final, native or synchronized; so the same restriction applies to methods declared within an interface.  
+15	f  	None of the above  	All methods declared within an interface are implicitly abstract and public. Although the abstract and public modifiers can legally be applied to a method declaration in an interface, the usage is redundant and is discouraged. An abstract method can not also be declared private, static, final, native or synchronized; so the same restriction applies to methods declared within an interface. Transient and volatile are not method modifiers.  
+16	c  d  e  	3  4  5  	Methods declared within an interface are implicitly public even if the modifier, public, is omitted from the declaration. Within the body of a class declaration, an attempt to implement the method using a weaker access privilege, private, protected or package access, results in a compile-time error.  
+17	c  d  	3  4  	All methods declared within an interface are implicitly abstract and public. Although the abstract and public modifiers can legally be applied to a method declaration in an interface, the usage is redundant and is discouraged. Since all methods declared within an interface are implicitly public, a weaker access level can not be declared.  
+18	a  b  c  	1  2  3  	All methods declared within an interface are implicitly abstract and public. Although the abstract and public modifiers can legally be applied to a method declaration in an interface, the usage is redundant and is discouraged. The final, synchronized and native modifiers can not appear in the declaration of an abstract method, and can not be applied to an abstract method declared within an interface.  
+19	c  d  e  	3  4  5  	All methods declared within an interface are implicitly abstract and public. Although the abstract and public modifiers can legally be applied to a method declaration in an interface, the usage is redundant and is discouraged. Since all methods declared within an interface are implicitly public, a weaker access level can not be declared.  
+20	a  	1  	All methods declared within an interface are implicitly abstract. The final, synchronized and native modifiers can not appear in the declaration of an abstract method, and can not be applied to an abstract method declared within an interface.  
+21	c  	Compile-time error  	In the declaration of interface B, the keyword, extends, has been replaced by the keyword, implements.  
+22	c  	Compile-time error  	Fields declared within an interface are implicitly public, final, and static. A compile-time error is generated in response to the attempt to increment the value of i.  
+23	b  	2  	All methods declared within an interface are implicitly abstract and public. Although the abstract and public modifiers can legally be applied to a method declaration in an interface, the usage is redundant and is discouraged. Methods declared within an interface are implicitly public even if the modifier, public, is omitted from the declaration. Within the body of a class declaration, an attempt to implement the method using a weaker access privilege, private, protected or package access, results in a compile-time error. An abstract class that implements an interface is free to override any of the inherited method declarations with another abstract method declaration.  
+24	e  	None of the above  	All methods declared within an interface are implicitly abstract and public. Although the abstract and public modifiers can legally be applied to a method declaration within an interface, the usage is redundant and is discouraged. The modifiers, final, synchronized and native, can not appear in the declaration of an abstract method, but they can be added to an implementation of an abstract method.  
+25	h  	Compile-time error at line 4  	Class C10 inherits ambiguous declarations of the name field. As long as the field is not referenced as a member of class C10; then, no compile-time error occurs. Line 4 generates the compile-time error, because it is the first to access the name field as a member of class C10.  
+26	b  	Prints: I10.s10,I20.s20,I20  	Class C20 inherits ambiguous declarations of the name field. As long as the field is not referenced as a member of class C20; then, no compile-time error occurs. Although line 4 may appear to generate the compile-time error it does not, because name is accessed directly as a member of interface I20. Therefore, the compiler does not encounter an ambiguity.   
+
+
+							Inheritance		
+
+
+Question 1
+
+Which of the following statements are true?
+a. 	A constructor can invoke another constructor of the same class using the alternate constructor invocation, "this(argumentListopt);".
+b. 	A constructor can invoke itself using the alternate constructor invocation, "this(argumentListopt);".
+c. 	The alternate constructor invocation, "this(argumentListopt);", can legally appear anywhere in the constructor body.
+d. 	A constructor can invoke the constructor of the direct superclass using the superclass constructor invocation, "super(argumentListopt);".
+e. 	The number of constructor invocations that may appear in any constructor body can equal but not exceed the number of alternate constructors declared in the same class.
+f. 	A constructor is not permitted to throw an exception.
+Question 2
+
+Suppose that the superclass constructor invocation, "super(argumentListopt);", appears explicitly in a subclass constructor. If a compile-time error is to be avoided then the arguments for the superclass constructor invocation, "super(argumentListopt);", can not refer to which of the following?
+a. 	Static variables declared in this class or any superclass.
+b. 	Instance variables declared in this class or any superclass.
+c. 	Static methods declared in this class or any superclass.
+d. 	Instance methods declared in this class or any superclass.
+e. 	The keyword this.
+f. 	The keyword super.
+Question 3
+
+class A {void m1(String s1) {}}
+class B extends A {
+  void m1(String s1) {}  // 1
+  void m1(boolean b) {}  // 2
+  void m1(byte b) throws Exception {}  // 3
+  String m1(short s) {return new String();} //4
+  private void m1(char c) {} // 5
+  protected void m1(int i) {} // 6
+}
+
+What is the result of attempting to compile the program?
+a. 	Compile-time error at line 1
+b. 	Compile-time error at line 2
+c. 	Compile-time error at line 3
+d. 	Compile-time error at line 4
+e. 	Compile-time error at line 5
+f. 	Compile-time error at line 6
+g. 	None of the above
+Question 4
+
+class A {void m1() {System.out.print("A.m1");}}
+class B extends A {
+  void m1() {System.out.print("B.m1");}
+  static void m1(String s) {System.out.print(s+",");}
+}
+class C {
+  public static void main (String[] args) {B.m1("main"); new B().m1();}
+}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: main,B.m1
+b. 	Compile-time error
+c. 	Run-time error
+d. 	None of the above
+Question 5
+
+Which of the following are true statements?
+a. 	The relationship between a class and its superclass is an example of a "has-a" relationship.
+b. 	The relationship between a class and its superclass is an example of an "is-a" relationship.
+c. 	The relationship between a class and an object referenced by a field within the class is an example of a "has-a" relationship.
+d. 	The relationship between a class and an object referenced by a field within the class is an example of an "is-a" relationship.
+Question 6
+
+class A {String s1 = "A.s1"; String s2 = "A.s2";}
+class B extends A {
+  String s1 = "B.s1";
+  public static void main(String args[]) {
+    B x = new B(); A y = (A)x;
+    System.out.println(x.s1+" "+x.s2+" "+y.s1+" "+y.s2);
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: B.s1 A.s2 B.s1 A.s2
+b. 	Prints: B.s1 A.s2 A.s1 A.s2
+c. 	Prints: A.s1 A.s2 B.s1 A.s2
+d. 	Prints: A.s1 A.s2 A.s1 A.s2
+e. 	Run-time error
+f. 	Compile-time error
+g. 	None of the above
+Question 7
+
+class C {
+  void printS1() {System.out.print("C.printS1 ");}
+  static void printS2() {System.out.print("C.printS2 ");}
+}
+class D extends C {
+  void printS1(){System.out.print("D.printS1 ");}
+  void printS2() {System.out.print("D.printS2 ");}
+  public static void main (String args[]) {
+    C c = new D(); c.printS1(); c.printS2();
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: C.printS1 C.printS2
+b. 	Prints: C.printS1 D.printS2
+c. 	Prints: D.printS1 C.printS2
+d. 	Prints: D.printS1 D.printS2
+e. 	Run-time error
+f. 	Compile-time error
+g. 	None of the above
+Question 8
+
+class E {
+  void printS1(){System.out.print("E.printS1 ");}
+  static void printS2() {System.out.print("E.printS2");}
+}
+class F extends E {
+  void printS1(){System.out.print("F.printS1 ");}
+  static void printS2() {System.out.print("F.printS2");}
+  public static void main (String args[]) {
+    E x = new F(); x.printS1(); x.printS2();
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: E.printS1 E.printS2
+b. 	Prints: E.printS1 F.printS2
+c. 	Prints: F.printS1 E.printS2
+d. 	Prints: F.printS1 F.printS2
+e. 	Run-time error
+f. 	Compile-time error
+g. 	None of the above
+Question 9
+
+class P {
+  static void printS1(){System.out.print("P.printS1 ");}
+  void printS2() {System.out.print("P.printS2 ");}
+  void printS1S2(){printS1();printS2();}
+}
+class Q extends P {
+  static void printS1(){System.out.print("Q.printS1 ");}
+  void printS2(){System.out.print("Q.printS2 ");}
+  public static void main(String[] args) {
+    new Q().printS1S2();
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: P.printS1 P.printS2
+b. 	Prints: P.printS1 Q.printS2
+c. 	Prints: Q.printS1 P.printS2
+d. 	Prints: Q.printS1 Q.printS2
+e. 	Run-time error
+f. 	Compile-time error
+g. 	None of the above
+Question 10
+
+class R {
+  private void printS1(){System.out.print("R.printS1 ");}
+  protected void printS2() {System.out.print("R.printS2 ");}
+  protected void printS1S2(){printS1();printS2();}
+}
+class S extends R {
+  private void printS1(){System.out.print("S.printS1 ");}
+  protected void printS2(){System.out.print("S.printS2 ");}
+  public static void main(String[] args) {
+    new S().printS1S2();
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: R.printS1 R.printS2
+b. 	Prints: R.printS1 S.printS2
+c. 	Prints: S.printS1 R.printS2
+d. 	Prints: S.printS1 S.printS2
+e. 	Run-time error
+f. 	Compile-time error
+g. 	None of the above
+Question 11
+
+class T {
+  private int i1, i2;
+  void printI1I2() {System.out.print("T, i1="+i1+", i2="+i2);}
+  T(int i1, int i2) {this.i1=i1; this.i2=i2;}
+}
+class U extends T {
+  private int i1, i2;
+  void printI1I2() {System.out.print("U, i1="+i1+", i2="+i2);}
+  U(int i1, int i2) {this.i1=i1; this.i2=i2;}
+  public static void main(String[] args) {
+    T t = new U(1,2); t.printI1I2();
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: U, i1=1, i2=2
+b. 	Prints: T, i1=1, i2=2
+c. 	Prints: U, i1=null, i2=null
+d. 	Prints: T, i1=null, i2=null
+e. 	Run-time error
+f. 	Compile-time error
+g. 	None of the above
+Question 12
+
+interface I {String s1 = "I";}
+class A implements I {String s1 = "A";}
+class B extends A {String s1 = "B";}
+class C extends B {
+  String s1 = "C";
+  void printIt() {
+    System.out.print(((A)this).s1 + ((B)this).s1 +
+                     ((C)this).s1 + ((I)this).s1);
+  }
+  public static void main (String[] args) {new C().printIt();}
+}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: ABCI
+b. 	Run-time error
+c. 	Compile-time error
+d. 	None of the above
+Question 13
+
+abstract class D {String s1 = "D"; String getS1() {return s1;}}
+class E extends D {String s1 = "E"; String getS1() {return s1;}}
+class F {
+  public static void main (String[] s) {
+    D x = new E(); System.out.print(x.s1 + x.getS1());
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: DD
+b. 	Prints: DE
+c. 	Prints: ED
+d. 	Prints: EE
+e. 	Run-time error
+f. 	Compile-time error
+g. 	None of the above
+Question 14
+
+class A {static void m() {System.out.print("A");}}
+class B extends A {static void m() {System.out.print("B");}}
+class C extends B {static void m() {System.out.print("C");}}
+class D {
+  public static void main(String[] args) {
+    C c = new C(); c.m(); B b = c; b.m(); A a = b; a.m();
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: AAA
+b. 	Prints: ABC
+c. 	Prints: CBA
+d. 	Prints: CCC
+e. 	Compile-time error
+f. 	Run-time error
+g. 	None of the above
+Question 15
+
+class A {String s1 = "A";}
+class B extends A {String s1 = "B";}
+class C extends B {String s1 = "C";}
+class D {
+  static void m1(A x) {System.out.print(x.s1);}
+  static void m1(B x) {System.out.print(x.s1);}
+  static void m1(C x) {System.out.print(x.s1);}
+  public static void main(String[] args) {
+    A a; B b; C c; a = b = c = new C(); m1(a); m1(b); m1(c);
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: AAA
+b. 	Prints: ABC
+c. 	Prints: CBA
+d. 	Prints: CCC
+e. 	Compile-time error
+f. 	Run-time error
+g. 	None of the above
+Question 16
+
+class Leg{}
+class Fur{}
+abstract class Pet {
+  public abstract void eat();
+  public abstract void sleep();
+}
+class Dog extends Pet {
+  Leg leftFront = new Leg(), rightFront = new Leg();
+  Leg leftRear = new Leg(), rightRear = new Leg();
+  Fur fur = new Fur();
+  public Fur shed() {return fur;}
+  public void eat() {}
+  public void sleep() {}
+}
+class Cat extends Dog {
+  public void ignoreOwner() {}
+  public void climbTree() {}
+}
+
+Which of the following statements is not a true statement?
+a. 	A Cat object inherits an instance of Fur and four instances of Leg from the Dog superclass.
+b. 	A Cat object is able to sleep and eat.
+c. 	A Cat object is able to climb a tree.
+d. 	The relationship between Dog and Pet is an example of an appropriate use of inheritance.
+e. 	The relationship between Cat and Dog is an example of an appropriate use of inheritance.
+f. 	None of the above.
+Question 17
+
+class A {
+  A() {System.out.print("CA ");}
+  static {System.out.print("SA ");}
+}
+class B extends A {
+  B() {System.out.print("CB ");}
+  static {System.out.print("SB ");}
+  public static void main (String[] args) {B b = new B();}
+}
+
+What is the result of attempting to compile and run the above program?
+a. 	Prints: SA CA SB CB
+b. 	Prints: SA SB CA CB
+c. 	Prints: SB SA CA CB
+d. 	Prints: SB CB SA CA
+e. 	Runtime Exception
+f. 	Compiler Error
+g. 	None of the above
+Question 18
+
+class A {String s1="A";}
+class B extends A {String s1="B";}
+class C extends B {String s1="C";}
+class D extends C {
+  String s1="D";
+  void m1() {
+    System.out.print(this.s1  + ",");      // 1
+    System.out.print(((C)this).s1  + ","); // 2
+    System.out.print(((B)this).s1  + ","); // 3
+    System.out.print(((A)this).s1);        // 4
+  }
+  public static void main (String[] args) {
+    new D().m1(); // 5
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: D,D,D,D
+b. 	Prints: D,C,B,A
+c. 	Compile-time error at 1.
+d. 	Compile-time error at 2.
+e. 	Compile-time error at 3.
+f. 	Compile-time error at 4.
+g. 	Compile-time error at 5.
+h. 	Run-time error
+i. 	None of the above
+Question 19
+
+class SuperA {String s1="SuperA";}
+class SuperB {String s1="SuperB";}
+class A extends SuperA {
+  String s1="A";
+  class B extends SuperB {  // 1
+    String s1="B";
+    void m1() {
+      System.out.print(this.s1 + ",");   // 2
+      System.out.print(super.s1 + ",");  // 3
+      System.out.print(A.this.s1 + ","); // 4
+      System.out.print(A.super.s1);      // 5
+    }
+  }
+  public static void main (String[] args) {
+    new A().new B().m1();  // 6
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: B,SuperB,B,SuperB
+b. 	Prints: B,SuperB,A,SuperA
+c. 	Compile-time error at 1.
+d. 	Compile-time error at 2.
+e. 	Compile-time error at 3.
+f. 	Compile-time error at 4.
+g. 	Compile-time error at 5.
+h. 	Compile-time error at 6.
+i. 	Run-time error
+j. 	None of the above
+Question 20
+
+class A {void m1() {System.out.print("A");}}
+class B extends A {void m1(){System.out.print("B");}}
+class C extends B {void m1() {System.out.print("C");}}
+class D extends C {
+  void m1() {System.out.print("D");}
+  void m2() {
+    m1();
+    ((C)this).m1(); // 1
+    ((B)this).m1(); // 2
+    ((A)this).m1(); // 3
+  }
+  public static void main (String[] args) {
+    new D().m2(); // 4
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: DCBA
+b. 	Prints: DDDD
+c. 	Compile-time error at 1.
+d. 	Compile-time error at 2.
+e. 	Compile-time error at 3.
+f. 	Compile-time error at 4.
+g. 	Run-time error
+h. 	None of the above
+Question 21
+
+class A {public void m1() {System.out.print("A1");}}
+class B extends A {
+  public void m1() {System.out.print("B1");}
+  public void m2() {System.out.print("B2");}
+}
+class C {
+  public static void main(String[] args) {
+    A a1 = new B();
+    a1.m1();      // 1
+    a1.m2();      // 2
+   ((B)a1).m1();  // 3
+   ((B)a1).m2();  // 4
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: A1B2B1B2
+b. 	Prints: B1B2B1B2
+c. 	Compile-time error at 1
+d. 	Compile-time error at 2
+e. 	Compile-time error at 3
+f. 	Compile-time error at 4
+g. 	Run-time error
+h. 	None of the above
+
+
+No.	Answer	Remark
+1	a  d  	A constructor can invoke another constructor of the same class using the alternate constructor invocation, "this(argumentListopt);".  A constructor can invoke the constructor of the direct superclass using the superclass constructor invocation, "super(argumentListopt);".  	If an alternate constructor invocation appears in the body of the constructor, then it must be the first statement. The same is true for a superclass constructor invocation. A compile-time error is generated if a constructor attempts to invoke itself either directly or indirectly.  
+2	b  d  e  f  	Instance variables declared in this class or any superclass.  Instance methods declared in this class or any superclass.  The keyword this.  The keyword super.  	If the superclass constructor invocation, "super(argumentListopt);", appears explicitly or implicitly, then it must be the first statement in the body of the constructor. Until the superclass constructor invocation runs to completion, no other statements are processed within the body of the constructor. The same is true of the constructors of any superclass. (Note: The primordial class, Object, does not have a superclass, so the constructors do not include a superclass constructor invocation statement.) Suppose class B is a subclass of A. The process of creating and initializing an instance of B includes the creation and initialization of an instance of the superclass A and an instance of the superclass Object. The superclass constructor invocation statement appearing in a constructor of B is invoked before the completion of the constructors of the superclasses A and Object. A superclass constructor invocation statement appearing in B can not refer to the non-static members of the superclasses, because the process of initializing those non-static superclass members is not complete when the superclass constructor invocation occurs in B. The same is true of the non-static members of B.  
+3	g  	None of the above  	If a superclass method is not private and is accessible to code in a subclass, then any subclass method that has the same signature as the superclass method must also have the same return type. In other words, if a superclass method is overridden or hidden in a subclass, then the overriding or hiding subclass method must have the same return type as the superclass method. No such restriction applies to method overloading. If two methods share an overloaded method name but not the same parameter list, then the two methods need not have the same return type. Class A declares one method: The name is m1 and the single parameter is of type String. Class B extends A and declares six methods that overload the name m1. The method, B.m1(String s1), overrides the superclass method, A.m1(String s1). The overriding subclass method must have the same return type as the superclass method, but the methods that overload the name m1 are free to have different return types. An overriding subclass method is not permitted to throw any checked exception that is not listed or is not a subclass of any of those listed in the throws clause of the superclass method. No such restriction applies to method overloading. If two methods share an overloaded method name but not the same parameter list, then the two methods are free to have differing throws clauses.  
+4	a  	Prints: main,B.m1  	Suppose a superclass method is not private and is accessible to code in a subclass. If the superclass method is declared static, then any subclass method sharing the same signature must also be declared static. Similarly, if the superclass method is not declared static, then any subclass method sharing the same signature must not be declared static. The rules governing method overloading are different. If a superclass method is declared static, then any subclass method that overloads the superclass method is free to be declared static or non-static. Similarly, if a method is declared non-static, then any overloading method is free to be declared static or non-static. Method B.m1() shares the same signature as the non-static superclass method A.m1(), so B.m1() must also be non-static. The method B.m1(String s) overloads the method name m1, but does not share the same signature with any superclass method; therefore, B.m1(String s) can be declared static even though the other methods of the same name are non-static.  
+5	b  c  	The relationship between a class and its superclass is an example of an "is-a" relationship.  The relationship between a class and an object referenced by a field within the class is an example of a "has-a" relationship.  	Inheritance is an example of an "is-a" relationship, because the subclass "is-a" specialized type of the superclass. The relationship between a class and an object referenced by a field declared within the class is an example of a "has-a" relationship, because the class "has-a" object.  
+6	b  	Prints: B.s1 A.s2 A.s1 A.s2  	The variables of a subclass can hide the variables of a superclass or interface. The variable that is accessed is determined at compile-time based on the type of the reference--not the run-time type of the object. The two references x and y refer to the same instance of type B. The name x.s1 uses a reference of type B; so it refers to the variable s1 declared in class B. The name y.s1 uses a reference of type A; so it refers to the variable s1 declared in class A.  
+7	f  	Compile-time error  	Suppose a superclass method is not private and is accessible to code in a subclass. If the superclass method is declared static, then any subclass method sharing the same signature must also be declared static. Similarly, if the superclass method is declared non-static, then any subclass method sharing the same signature must also be declared non-static. The attempted declaration of the non-static method D.printS2 generates a compile-time error; because the superclass method, C.printS2, is static.  
+8	c  	Prints: F.printS1 E.printS2  	A static method is selected based on the compile-time type of the reference--not the run-time type of the object. A non-static method is selected based on the run-time type of the object--not the compile-time type of the reference. Both method invocation expressions, x.printS1() and x.printS2(), use a reference of the superclass type, E, but the object is of the subclass type, F. The first of the two expressions invokes an instance method on an object of the subclass type; so the overriding subclass method is selected. The second invokes a static method using a reference of the superclass type; so the superclass method is selected.  
+9	b  	Prints: P.printS1 Q.printS2  	Suppose a method m1 is invoked using the method invocation expression m1(). If m1 is a static member of the class where the invocation expression occurs, then that is the implementation of the method that is invoked at run-time regardless of the run-time type of the object. If m1 is non-static, then the selected implementation is determined at run-time based on the run-time type of the object. The program invokes method printS1S2 on an instance of class Q. The body of method printS1S2 contains two method invocation expressions, printS1() and printS2(). Since method printS1 is static, the implementation declared in class P is invoked. Since printS2 is non-static and the run-time type of the object is Q, the invoked method is the one declared in class Q.  
+10	b  	Prints: R.printS1 S.printS2  	A private method of a superclass is not inherited by a subclass. Even if a subclass method has the same signature as a superclass method, the subclass method does not override the superclass method. Suppose a non-static method m1 is invoked using the method invocation expression m1(). If m1 is a private member of the class T where the invocation expression occurs, then the implementation in class T is selected at run-time regardless of the run-time type of the object. If the non-static method m1 is not private, then the selected implementation is determined at run-time based on the run-time type of the object. The program invokes the non-static method printS1S2 on an instance of class S, so the run-time type is S. The body of method R.printS1S2 contains two method invocation expressions, printS1() and printS2(). Since class R contains a private implementation of the instance method printS1, it is the implementation that is selected regardless of the run-time type of the object. Since printS2 is not private and not static, the selected implementation of printS2 depends on the run-time type of the object. The method printS1S2 is invoked on an instance of class S; so the run-time type of the object is S, and the implementation of printS2 declared in class S is selected.  
+11	f  	Compile-time error  	The two-parameter constructor of U does not explicitly invoke the two-parameter constructor of T; therefore, the constructor of U will try to invoke a no-parameter constructor of T, but none exists.  
+12	a  	Prints: ABCI  	Suppose that a class extends a superclass, X, or implements an interface, X. The field access expression ((X)this).hiddenField is used to access the hidden field, hiddenField, that is accessible within the superclass or interface, X.  
+13	b  	Prints: DE  	At run-time, the actual field that is accessed depends on the compile-time type of the reference--not the run-time type of the object. The compile-time type of the reference x in the name x.s1 is D; so the selected field is the one declared in class D. A non-static method is selected based on the run-time type of the object--not the compile-time type of the reference. The same reference variable x is used in the method invocation expression x.getS1(), and the compile-time type is still D. At run-time, the actual type of the object is E; so the selected method is the one declared in class E.  
+14	c  	Prints: CBA  	Class C extends B, and B extends A. The static method C.m hides method B.m, and B.m hides A.m. In the method invocation expression c.m(), the compile-time type of the reference c is C. A static method is invoked based on the compile-time type of the reference; so the method invocation expression c.m() invokes the method m declared in class C. The compile-time type of the reference b is B; so the method invocation expression b.m() invokes the method m declared in class B. The compile-time type of the reference a is A; so the method invocation expression a.m() invokes the method m declared in class A.  
+15	b  	Prints: ABC  	In all three cases, the object passed to method m1 is an instance of class C; however, the type of the reference is different for each method. Since fields are accessed based on the type of the reference, the value printed by each method is different even though the same instance is used for each method invocation.  
+16	e  	The relationship between Cat and Dog is an example of an appropriate use of inheritance.  	An appropriate inheritance relationship includes a subclass that "is-a" special kind of the superclass. The relationship between the Dog subclass and the Pet superclass is an example of an appropriate inheritance relationship, because a Dog "is-a" Pet. The relationship between the Cat subclass and the Dog superclass is not an example of an appropriate use of inheritance, because a Cat is not a special kind of a Dog. The goal of the OO paradigm is to develop software models that are accurate and reusable. If the software model is not accurate, then it probably is not reusable and the goals of the OO paradigm are not achieved. Code reuse and maintenance becomes increasingly difficult when inheritance is used to model inappropriate relationships. For example, suppose that somebody implements a herdSheep method in the Dog class. The Cat subclass would inherit the method and suddenly each instance of Cat would acquire the unwanted capability to make an attempt to herd sheep. It is difficult to imagine that a Cat would perform well in that role, so additional maintenance would be required to resolve the problem.  
+17	b  	Prints: SA SB CA CB  	The static initializer of the super class runs before the static initializer of the subclass. The body of the superclass constructor runs to completion before the body of the subclass constructor runs to completion.  
+18	b  	Prints: D,C,B,A  	A field of a superclass can be inherited by a subclass if the superclass field is not private and not hidden by a field declaration in the subclass and is accessible to code in the subclass. The field D.s1 hides C.s1, and C.s1 hides B.s1, and B.s1 hides A.s1. The keyword this serves as a reference to the object on which a method has been invoked. In the field access expression this.s1 appearing on line 1, the keyword this denotes a reference to the object of type D on which method m1 has been invoked. In the field access expression ((C)this).s1 appearing on line 2, the reference denoted by the keyword this is cast from type D to type C. The field that is accessed at run-time depends on the compile-time type of the reference; so the field access expression ((C)this).s1 refers the the variable s1 declared in class C.  
+19	b  	Prints: B,SuperB,A,SuperA  	The expression A.this.s1 is an example of a qualified this expression. It accesses the variable s1 declared in class A. The expression A.super.s1 is equivalent to ((SuperA)A.this).s1. It accesses the variable s1 declared in class SuperA.  
+20	b  	Prints: DDDD  	The instance method that is invoked depends on the run-time type of the object--not the compile-time type of the reference. In each case, the method m1 is invoked on an object of type D; so the implementation of m1 in type D is selected each time.  
+21	d  	Compile-time error at 2  	The method invocation expression a1.m2() generates a compile-time error, because the named method, m2, is declared in class B, but the reference is of the superclass type, A. The reference a1 is of type A; so a1 is able to access only those methods that are declared in class A and subclass methods that override those of class A. Only one method, m1, is declared in A; so a reference of type A can be used to invoke A.m1 or an overriding implementation of m1 that is declared in a subclass of A. Class B extends A and overrides method m1. A reference of type A can be used to invoke method m1 on an instance of type B. Class B declares an additional method, m2, that does not override a method of class A; so a reference of type A can not invoke B.m2.  
+ 
+
+						Method Overloading	
+ Question 1
+
+class A {void m1(A a) {System.out.print("A");}}
+class B extends A {void m1(B b) {System.out.print("B");}}
+class C extends B {void m1(C c) {System.out.print("C");}}
+class D extends C {
+  void m1(D d) {System.out.print("D");}
+  public static void main(String[] args) {
+    A a1 = new A(); B b1 = new B(); C c1 = new C(); D d1 = new D();
+    d1.m1(a1); d1.m1(b1); d1.m1(c1);
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: AAA
+b. 	Prints: ABC
+c. 	Prints: DDD
+d. 	Prints: ABCD
+e. 	Compile-time error
+f. 	Run-time error
+g. 	None of the above
+Question 2
+
+class GFC215 {
+  static String m(float i) {return "float";}
+  static String m(double i) {return "double";}
+  public static void main (String[] args) {
+    int a1 = 1; long b1 = 2; System.out.print(m(a1)+","+ m(b1));
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: float,float
+b. 	Prints: float,double
+c. 	Prints: double,float
+d. 	Prints: double,double
+e. 	Compile-time error
+f. 	Run-time error
+g. 	None of the above
+Question 3
+
+class A {}  class B extends A {}  class C extends B {}
+class D {
+  void m1(A a) {System.out.print("A");}
+  void m1(B b) {System.out.print("B");}
+  void m1(C c) {System.out.print("C");}
+  public static void main(String[] args) {
+    A c1 = new C(); B c2 = new C(); C c3 = new C(); D d1 = new D();
+    d1.m1(c1); d1.m1(c2); d1.m1(c3);
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: AAA
+b. 	Prints: ABC
+c. 	Prints: CCC
+d. 	Compile-time error
+e. 	Run-time error
+f. 	None of the above
+Question 4
+
+class GFC216 {
+  static String m(float i) {return "float";}
+  static String m(double i) {return "double";}
+  public static void main (String[] args) {
+    char a1 = 1; long b1 = 2; System.out.print(m(a1)+","+ m(b1));
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: float,float
+b. 	Prints: float,double
+c. 	Prints: double,float
+d. 	Prints: double,double
+e. 	Compile-time error
+f. 	Run-time error
+g. 	None of the above
+Question 5
+
+class A {void m1(A a) {System.out.print("A");}}
+class B extends A {void m1(B b) {System.out.print("B");}}
+class C extends B {void m1(C c) {System.out.print("C");}}
+class D {
+  public static void main(String[] args) {
+    A c1 = new C(); B c2 = new C(); C c3 = new C(); C c4 = new C();
+    c4.m1(c1); c4.m1(c2); c4.m1(c3);
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: AAA
+b. 	Prints: ABC
+c. 	Prints: CCC
+d. 	Compile-time error
+e. 	Run-time error
+f. 	None of the above
+Question 6
+
+class GFC217 {
+  static String m(int i) {return "int";}
+  static String m(float i) {return "float";}
+  public static void main (String[] args) {
+    long a1 = 1; double b1 = 2; System.out.print(m(a1)+","+ m(b1));
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: float,float
+b. 	Prints: float,double
+c. 	Prints: double,float
+d. 	Prints: double,double
+e. 	Compile-time error
+f. 	Run-time error
+g. 	None of the above
+Question 7
+
+class A {void m1(A a) {System.out.print("A");}}
+class B extends A {void m1(B b) {System.out.print("B");}}
+class C extends B {void m1(C c) {System.out.print("C");}}
+class D {
+  public static void main(String[] args) {
+    A c1 = new C(); C c2 = new C(); c1.m1(c2);
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: A
+b. 	Prints: B
+c. 	Prints: C
+d. 	Compile-time error
+e. 	Run-time error
+f. 	None of the above
+Question 8
+
+class GFC218 {
+  static void m(Object x) {System.out.print("Object");}
+  static void m(String x) {System.out.print("String");}
+  public static void main(String[] args) {m(null);}
+}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: Object
+b. 	Prints: String
+c. 	Compile-time error
+d. 	Run-time error
+e. 	None of the above
+Question 9
+
+class A {void m1(A a) {System.out.print("A");}}
+class B extends A {void m1(B b) {System.out.print("B");}}
+class C extends B {void m1(C c) {System.out.print("C");}}
+class D {
+  public static void main(String[] args) {
+    A a1 = new A(); A b1 = new B(); A c1 = new C(); C c4 = new C();
+    a1.m1(c4); b1.m1(c4); c1.m1(c4);
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: AAA
+b. 	Prints: ABC
+c. 	Prints: CCC
+d. 	Compile-time error
+e. 	Run-time error
+f. 	None of the above
+Question 10
+
+class GFC200 {}
+class GFC201 {
+  static void m(Object x) {System.out.print("Object");}
+  static void m(String x) {System.out.print("String");}
+  static void m(GFC200 x) {System.out.print("GFC200");}
+  public static void main(String[] args) {m(null);}
+}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: Object
+b. 	Prints: String
+c. 	Prints: GFC200
+d. 	Compile-time error
+e. 	Run-time error
+f. 	None of the above
+Question 11
+
+class A {void m1(A a) {System.out.print("A");}}
+class B extends A {void m1(B b) {System.out.print("B");}}
+class C extends B {void m1(C c) {System.out.print("C");}}
+class D {
+  public static void main(String[] args) {
+    A a1 = new A(); B b1 = new B(); C c1 = new C(); A c2 = new C();
+    c2.m1(a1); c2.m1(b1); c2.m1(c1);
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: AAA
+b. 	Prints: ABC
+c. 	Prints: CCC
+d. 	Compile-time error
+e. 	Run-time error
+f. 	None of the above
+Question 12
+
+class GFC202 {}  class GFC203 extends GFC202 {}
+class GFC204 {
+  static void m(GFC202 x) {System.out.print("GFC202");}
+  static void m(GFC203 x) {System.out.print("GFC203");}
+  public static void main(String[] args) {m(null);}
+}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: GFC202
+b. 	Prints: GFC203
+c. 	Compile-time error
+d. 	Run-time error
+e. 	None of the above
+Question 13
+
+class A {void m1(A a) {System.out.print("A");}}
+class B extends A {void m1(B b) {System.out.print("B");}}
+class C extends B {void m1(C c) {System.out.print("C");}}
+class D {
+  public static void main(String[] args) {
+    A a1 = new A(); B b1 = new A(); C c1 = new A(); C c2 = new C();
+    c2.m1(a1); c2.m1(b1); c2.m1(c1);
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: AAA
+b. 	Prints: ABC
+c. 	Prints: CCC
+d. 	Compile-time error
+e. 	Run-time error
+f. 	None of the above
+Question 14
+
+class GFC205 {}  class GFC206 extends GFC205 {}
+class GFC207 extends GFC206 {
+  static void m(GFC205 x, GFC205 y) {System.out.print("GFC205,GFC205");}
+  static void m(GFC205 x, GFC206 y) {System.out.print("GFC205,GFC206");}
+  static void m(GFC206 x, GFC205 y) {System.out.print("GFC206,GFC205");}
+  static void m(GFC206 x, GFC206 y) {System.out.print("GFC206,GFC206");}
+  public static void main(String[] args) {
+    GFC207 gfc207 = new GFC207(); m(gfc207, gfc207);
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: GFC205,GFC205
+b. 	Prints: GFC205,GFC206
+c. 	Prints: GFC206,GFC205
+d. 	Prints: GFC206,GFC206
+e. 	Compile-time error
+f. 	Run-time error
+g. 	None of the above
+Question 15
+
+class A {void m1(A a) {System.out.print("A");}}
+class B extends A {void m1(B b) {System.out.print("B");}}
+class C extends B {void m1(C c) {System.out.print("C");}}
+class D {
+  public static void main(String[] args) {
+    A a1 = new A(); B b1 = new B(); C c1 = new C(); C c2 = new A();
+    c2.m1(a1); c2.m1(b1); c2.m1(c1);
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: AAA
+b. 	Prints: ABC
+c. 	Prints: CCC
+d. 	Compile-time error
+e. 	Run-time error
+f. 	None of the above
+Question 16
+
+class GFC211 {}  class GFC212 extends GFC211 {}
+class GFC213 extends GFC212 {
+  static void m(GFC211 x, GFC211 y) {System.out.print("GFC211,GFC211");}
+  static void m(GFC211 x, GFC212 y) {System.out.print("GFC211,GFC212");}
+  static void m(GFC212 x, GFC211 y) {System.out.print("GFC212,GFC211");}
+  static void m(GFC212 x, GFC212 y) {System.out.print("GFC212,GFC212");}
+  static void m(GFC211 x, GFC213 y) {System.out.print("GFC211,GFC213");}
+  public static void main(String[] args) {
+    GFC213 gfc213 = new GFC213(); m(gfc213, gfc213);
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: GFC211,GFC211
+b. 	Prints: GFC211,GFC212
+c. 	Prints: GFC212,GFC211
+d. 	Prints: GFC212,GFC212
+e. 	Prints: GFC211,GFC213
+f. 	Compile-time error
+g. 	Run-time error
+h. 	None of the above
+Question 17
+
+class GFC214 {
+  static void m1(boolean b1) {System.out.print("boolean ");}
+  static void m1(byte b1) {System.out.print("byte ");}
+  static void m1(short s1) {System.out.print("short ");}
+  static void m1(char c1) {System.out.print("char ");}
+  static void m1(int i1) {System.out.print("int ");}
+  public static void main(String[] args) {
+    byte b1; m1(b1 = 1); m1(b1); m1(b1 == 1);
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: byte byte byte
+b. 	Prints: byte byte boolean
+c. 	Prints: int int int
+d. 	Compile-time error
+e. 	Run-time error
+f. 	None of the above
+Question 18
+
+class A {}  class B extends A {}
+class C extends B {
+  static void m(A x, A y) {System.out.print("AA");}
+  static void m(A x, B y) {System.out.print("AB");}
+  static void m(B x, A y) {System.out.print("BA");}
+  static void m(B x, B y) {System.out.print("BB");}
+  public static void main(String[] args) {
+    A a1; B b1; m(null,null); m(a1=null,b1=null); m(b1, a1);
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: BBABAB
+b. 	Prints: BBABBA
+c. 	Prints: BBBBAB
+d. 	Prints: BBBBBA
+e. 	Prints: BBBBBB
+f. 	Compile-time error
+g. 	Run-time error
+h. 	None of the above
+Question 19
+
+class A {}  class B extends A {}
+class C extends B {
+  static void m1(A x) {System.out.print("m1A");}
+  static void m2(B x) {System.out.print("m2B"); m1(x);}
+  static void m2(A x) {System.out.print("m2A"); m1(x);}
+  static void m3(C x) {System.out.print("m3C"); m2(x);}
+  static void m3(B x) {System.out.print("m3B"); m2(x);}
+  static void m3(A x) {System.out.print("m3A"); m2(x);}
+  public static void main(String[] args) {m3(new C());}
+}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: m3Am2Am1A
+b. 	Prints: m3Bm2Bm1A
+c. 	Prints: m3Cm2Bm1A
+d. 	Prints: m3Cm2Am1A
+e. 	Compile-time error
+f. 	Run-time error
+g. 	None of the above
+
+No.	Answer	Remark
+1	b  	Prints: ABC  	The method invocation expression d1.m1(a1) uses reference d1 of type D to invoke method m1. Since the reference d1 is of type D, the class D is searched for an applicable implementation of m1. The methods inherited from the superclasses, C, B and A, are included in the search. The argument, a1, is a variable declared with the type A; so method A.m1(A a) is invoked.  
+2	a  	Prints: float,float  	A method invocation conversion can widen an argument of type float to match a method parameter of type double, so any argument that can be passed to m(float i) can also be passed to m(double i) without generating a compile-time type error. For that reason, we can say that m(float i) is more specific than m(double i). Since both methods are applicable, the more specific of the two, m(float i), is chosen over the less specific, m(double i). The arguments of the method invocation expressions, m(a1) and m(b1), are of types int and long respectively. A method invocation conversion can widen an argument of type int or long to match either of the two method parameter types float or double; so both methods, m(float i) and m(double i), are applicable to the two method invocation expressions. Since both methods are applicable, the more specific of the two, m(float i) is chosen rather than the less specific, m(double i).  
+3	b  	Prints: ABC  	Three methods overload the method name m1. Each has a single parameter of type A or B or C. For any method invocation expression of the form m1(referenceArgument), the method is selected based on the declared type of the variable referenceArgument--not the run-time type of the referenced object. The method invocation expression d1.m1(c1) uses reference d1 of type D to invoke method m1 on an instance of type D. The argument, c1, is a reference of type A and the run-time type of the referenced object is C. The argument type is determined by the declared type of the reference variable c1--not the run-time type of the object referenced by c1. The declared type of c1 is type A; so the method m1(A a) is selected. The declared type of c2 is type B; so the method invocation expression d1.m1(c2) invokes method m1(B b). The declared type of c3 is type C; so the method invocation expression d1.m1(c3) invokes method m1(C c).  
+4	a  	Prints: float,float  	A method invocation conversion can widen an argument of type float to match a method parameter of type double, so any argument that can be passed to m(float i) without generating a compile-time type error can also be passed to m(double i). For that reason, we can say that m(float i) is more specific than m(double i). The arguments of the method invocation expressions, m(a1) and m(b1), are of types char and long respectively. A method invocation conversion can widen an argument of type char or long to match either of the two method parameter types float or double; so both methods, m(float i) and m(double i), are applicable to the two method invocation expressions. Since both methods are applicable, the more specific of the two, m(float i) is chosen rather than the less specific, m(double i).  
+5	b  	Prints: ABC  	Three methods overload the method name m1. Each has a single parameter of type A or B or C. For any method invocation expression of the form m1(referenceArgument), the method is selected based on the declared type of the variable referenceArgument--not the run-time type of the referenced object. The method invocation expression c4.m1(c1) uses reference c4 of type C to invoke method m1 on an instance of type C. The argument, c1, is a reference of type A and the run-time type of the referenced object is C. The argument type is determined by the declared type of the reference variable c1--not the run-time type of the object referenced by c1. The declared type of c1 is type A; so the method A.m1(A a) is selected. The declared type of c2 is type B; so the method invocation expression c4.m1(c2) invokes method B.m1(B b). The declared type of c3 is type C; so the method invocation expression c4.m1(c3) invokes method C.m1(C c).  
+6	e  	Compile-time error  	The method invocation expression, m(b1), contains an argument of type double. A method invocation conversion will not implicitly narrow the argument to match the parameter type of the method, m(float i). The method invocation expression, m(a1), contains an argument of type long. A method invocation conversion will widen the argument to match the parameter type of the the method, m(float i).  
+7	a  	Prints: A  	The reference c1 is of the superclass type, A; so it can be used to invoke only the method m1 declared in class A. The methods that overload the method name m1 in the subclasses, B and C, can not be invoked using the reference c1. A method invocation conversion promotes the argument referenced by c2 from type C to type A, and the method declared in class A is executed. Class A declares only one method, m1. The single parameter is of type A. Class B inherits the method declared in class A and overloads the method name with a new method that has a single parameter of type B. Both methods sharing the overloaded name, m1, can be invoked using a reference of type B; however, a reference of type A can be used to invoke only the method declared in class A. Class C inherits the methods declared in classes A and B and overloads the method name with a new method that has a single parameter of type C. All three methods sharing the overloaded name, m1, can be invoked using a reference of type C; however, a reference of type B can be used to invoke only the method declared in class B and the method declared in the superclass A. The method invocation expression c1.m1(c2) uses reference c1 of type A to invoke method m1. Since the reference c1 is of type A, the search for an applicable implementation of m1 is limited to class A. The subclasses, B and C, will not be searched; so the overloading methods declared in the subclasses can not be invoked using a reference of the superclass type.  
+8	b  	Prints: String  	A method invocation conversion can widen an argument of type String to match a method parameter of type Object, so any argument that can be passed to m(String x) without generating a compile-time type error can also be passed to m(Object x). For that reason, we can say that m(String x) is more specific than m(Object x). The argument of the method invocation expression, m(null), is of type null and can be converted to either type String or Object by method invocation conversion, so both methods, m(String x) and m(Object x), are applicable. The more specific of the two, m(String x), is chosen over the less specific, m(Object x).  
+9	a  	Prints: AAA  	The declared type of the reference variables, a1, b1 and c1, is the superclass type, A; so the three reference variables can be used to invoke only the method m1(A a) that is declared in the superclass, A. The methods that overload the method name m1 in the subclasses, B and C, can not be invoked using a reference variable of the superclass type, A. A method invocation conversion promotes the argument referenced by c4 from type C to type A, and the method declared in class A is executed.  
+10	d  	Compile-time error  	The type of the argument is null and could be converted to any of the types Object, String or GFC200, by method invocation conversion. All three methods are applicable, but none of the three is more specific than both of the other two. The ambiguity results in a compile-time type error. If type GFC200 were a subclass of type String; then any argument that could be pass to m(GFC200 x) could also be passed to m(String x) without causing a compile-time type error, and we could say that m(GFC200 x) is more specific than m(String x). Since GFC200 is not a subclass of type String, a method invocation conversion is not able to widen an argument of type GFC200 to match a method parameter of type String, so m(GFC200 x) is not more specific than m(String x).  
+11	a  	Prints: AAA  	The reference c2 is of the superclass type, A; so it can be used to invoke only the method, m1, declared in class A. The methods that overload the method name m1 in the subclasses, B and C, can not be invoked using the reference c2.  
+12	b  	Prints: GFC203  	The type of the argument is null and could be converted to either type GFC202 or GFC203 by method invocation conversion; so both methods are applicable. The more specific of the two, m(GFC203 x), is chosen. Type GFC203 is a subclass of type GFC202; so any argument that can be passed to m(GFC203 x) can also be passed to method m(GFC202 x) without causing a compile-time type error; therefore, we can say that method m(GFC203 x) is more specific than m(GFC202 x).  
+13	d  	Compile-time error  	The declarations of b1 and c1 cause compile-time errors, because a reference of a subclass type can not refer to an instance of the superclass type.  
+14	d  	Prints: GFC206,GFC206  	Type GFC207 is a subclass of types GFC206 and GFC205, so any of the four methods are applicable to the method invocation expression, m(gfc207, gfc207). The most specific of the four, m(GFC206 x, GFC206 y), is chosen. Type GFC206 is a subclass of type GFC205, and method m(GFC206 x, GFC206 y) is more specific than the other three, because any invocation of m(GFC206 x, GFC206 y) could also be handled by any of the other three without causing a compile-time type error.  
+15	d  	Compile-time error  	The declaration of c2 causes a compile-time error, because a reference of a subclass type can not refer to an instance of the superclass class.  
+16	f  	Compile-time error  	The method invocation expression, m(gfc213, gfc213), is ambiguous; because, no applicable method is more specific than all of the others. Method m(GFC212 x, GFC212 y) is more specific than m(GFC212 x, GFC211 y), because any invocation of m(GFC212 x, GFC212 y) could also be handled by m(GFC212 x, GFC211 y) without causing a compile-time type error. However, some invocations of m(GFC212 x, GFC212 y) can not be handled by m(GFC211 x, GFC213 y), so m(GFC212 x, GFC212 y) is not more specific than m(GFC211 x, GFC213 y). Furthermore, not all invocations of m(GFC211 x, GFC213 y) could be handled by m(GFC212 x, GFC212 y).  
+17	b  	Prints: byte byte boolean  	Variable b1 was initialized by the first method invocation statement, so the second method invocation statement does not result in a compile-time error. The assignment expression, b1 = 1, initializes variable b1 with the value 1, and the same value is passed as an argument to method m1(byte b1). The method invocation expression, m1(b1), invokes the same method, m1(byte b1). The argument of the third method invocation expression, m1(b1 == 1), is the result of the equality expression, b1 == 1. The type of the result and the argument is boolean, so the invoked method is m1(boolean b1).  
+18	b  	Prints: BBABBA  	Type B is a subclass of type A, and method m(B x, B y) is more specific than the other three; because any invocation of it could be handled by any of the other three without causing a compile-time type error. All four methods are applicable to the first method invocation expression, m(null,null). The most specific method, m(B x, B y), is chosen; and both arguments are converted to type B. In the second method invocation expression, m(a1=null,b1=null), simple assignment expressions initialize the local variables a1 and b1 with null references of types A and B respectively. The invoked method is m(A x, B y). In the third method invocation expression, the positions of the arguments are reversed relative to the previous invocation: The type of the first argument is now B and the second is A. The invoked method is m(B x, A y).  
+19	c  	Prints: m3Cm2Bm1A  	The method invocation expression, m3(new C()), invokes method m3(C x), because the argument type matches the parameter type of the method declaration exactly. Method m3 uses the parameter as the argument of the next invocation expression, m2(x). Of the two overloaded versions of m2, the most specific is invoked, m2(B x). Type B is a subclass of A, so any invocation of m2(B x) could be handled by m2(A x) without causing a compile-time type error. For that reason, m2(B x) is more specific than m2(A x).  
+ 
+							Encapsulation
+
+
+Question 1
+
+Which of the following are true statements?
+a. 	Encapsulation is a form of data hiding.
+b. 	A tightly encapsulated class is always immutable.
+c. 	Encapsulation is always used to make programs run faster.
+d. 	Encapsulation helps to protect data from corruption.
+e. 	Encapsulation allows for changes to the internal design of a class while the public interface remains unchanged.
+Question 2
+
+Which of the following are true statements?
+a. 	A top-level class can not be called "tightly encapsulated" unless it is declared private.
+b. 	Encapsulation enhances the maintainability of the code.
+c. 	A tightly encapsulated class allows fast public access to member fields.
+d. 	A tightly encapsulated class allows access to data only through accessor and mutator methods.
+e. 	Encapsulation usually reduces the size of the code.
+f. 	A tightly encapsulated class might have mutator methods that validate data before it is loaded into the internal data model.
+Question 3
+
+A class can not be called "tightly encapsulated" unless which of the following is true?
+a. 	The class is declared final.
+b. 	All local variables are declared private.
+c. 	All method parameters are declared final.
+d. 	No method returns a reference to any object that is referenced by an internal data member.
+e. 	None of the above
+Question 4
+
+A class can not be called "tightly encapsulated" unless which of the following is true?
+a. 	All of the methods are declared private.
+b. 	All of the methods are synchronized.
+c. 	All local variables are declared final.
+d. 	The class is a direct subclass of Object.
+e. 	Accessor methods are used to prevent fields from being set with invalid data.
+f. 	None of the above
+Question 5
+
+A class can not be called "tightly encapsulated" unless which of the following are true?
+a. 	The data members can not be directly manipulated by external code.
+b. 	The class is declared final.
+c. 	It has no public mutator methods.
+d. 	The superclass is tightly encapsulated.
+Question 6
+
+A class can not be called "tightly encapsulated" unless which of the following is true?
+a. 	The class is a nested class.
+b. 	The constructors are declared private.
+c. 	The mutator methods are declared private.
+d. 	The class implements the Encapsulated interface.
+e. 	None of the above
+Question 7
+
+A class can not be called "tightly encapsulated" unless which of the following is true?
+a. 	All member fields are declared final.
+b. 	The class is not anonymous.
+c. 	The internal data model can be read and modified only through accessor and mutator methods.
+d. 	The class is an inner class.
+e. 	None of the above
+Question 8
+
+class GFC500 {private String name;}
+class GFC501 {
+  private String name;
+  private void setName(String name) {this.name = name;}
+  private String getName() {return name;}
+}
+class GFC502 {
+  private String name;
+  public void setName(String name) {this.name = name;}
+  public String getName() {return name;}
+}
+
+Which class is not tightly encapsulated?
+a. 	GFC501
+b. 	GFC502
+c. 	GFC503
+d. 	None of the above
+Question 9
+
+class GFC505 extends GFC504 {
+  public void setName(String name) {this.name = name;}
+  public String getName() {return name;}
+}
+class GFC504 extends GFC503 {
+  private void setName(String name) {this.name = name;}
+  private String getName() {return name;}
+}
+class GFC503 {String name;}
+
+Which class is tightly encapsulated?
+a. 	GFC503
+b. 	GFC504
+c. 	GFC505
+d. 	None of the above
+Question 10
+
+class GFC506 {private String name;}
+class GFC507 extends GFC506 {
+  String name;
+  public void setName(String name) {this.name = name;}
+  public String getName() {return name;}
+}
+class GFC508 extends GFC506 {
+  private String name;
+  public GFC508(String name) {setName(name);}
+  public void setName(String name) {this.name = name;}
+  public String getName() {return name;}
+}
+
+Which class is not tightly encapsulated?
+a. 	GFC506
+b. 	GFC507
+c. 	GFC508
+d. 	None of the above
+
+No.	Answer	Remark
+1	a  d  e  	Encapsulation is a form of data hiding.  Encapsulation helps to protect data from corruption.  Encapsulation allows for changes to the internal design of a class while the public interface remains unchanged.  	A tightly encapsulated class does not allow direct public access to the internal data model. Instead, access is permitted only through accessor (i.e. get) and mutator (i.e. set) methods. The additional time required to work through the accessor and mutator methods typically slows execution speed. Encapsulation is a form of data hiding. A tightly encapsulated class does not allow public access to any data member that can be changed in any way; so encapsulation helps to protect internal data from the possibility of corruption from external influences. The mutator methods can impose contraints on the argument values. If an argument falls outside of the acceptable range, then a mutator method could throw an IllegalArgumentException. The internal design of a tightly encapsulated class can change while the public interface remains unchanged. An immutable class is always tightly encapsulated, but not every tightly encapsulation class is immutable.  
+2	b  d  f  	Encapsulation enhances the maintainability of the code.  A tightly encapsulated class allows access to data only through accessor and mutator methods.  A tightly encapsulated class might have mutator methods that validate data before it is loaded into the internal data model.  	The data members of a tightly encapsulated class are declared private; so changes to the data model are less likely to impact external code. Access to internal data can be provided by public accessor (i.e. get) and mutator (i.e. set) methods. The mutator methods can be used to validate the data before it is loaded into the internal data model. The use of accessor and mutator methods is likely to increase the size of the code and slow execution speed.  
+3	e  	None of the above  	If a class A has a method that returns a reference to an internal, mutable object; then external code can use the reference to modify the internal state of class A. Therefore, class A can not be considered tightly encapsulated. However, the methods of a tightly encapsulated class may return a reference to an immutable object or a reference to a copy or clone of an internal object.  
+4	f  	None of the above  	One answer option reads as follows: "Accessor methods are used to prevent fields from being set with invalid data." The answer would be correct if the word "Accessor" were replaced by the word "Mutator". Accessor methods are used to read data members; mutator methods are used to set data members. The mutator methods can validate the parameter values before the values are used to change the state of the internal data model.  
+5	a  d  	The data members can not be directly manipulated by external code.  The superclass is tightly encapsulated.  	If a class A is not tightly encapsulated, then no subclass of A is tightly encapsulated.  
+6	e  	None of the above  	A tightly encapsulated class may have public mutator methods.  
+7	c  	The internal data model can be read and modified only through accessor and mutator methods.  	A class is not tightly encapsulated if the internal data model can be read and/or modified without working through accessor (i.e. get) and mutator (i.e. set) methods.  
+8	d  	None of the above  	All three classes are tightly encapsulated, because the data members are private. A tightly encapsulated class can have public accessor and mutator methods, but it is not required to have those methods.  
+9	d  	None of the above  	Class GFC503 is not tightly encapsulated; so no subclass of GFC503 is tightly encapsulated.  
+10	b  	GFC507  	Class GFC507 has a public field; so it is not tightly encapsulated.   
+
+
+						Threads
+
+Question 1
+
+Which of the following methods are members of the Object class?
+a. 	join
+b. 	notify
+c. 	notifyAll
+d. 	run
+e. 	sleep
+f. 	start
+g. 	yield
+h. 	wait
+Question 2
+
+Which of the following methods are static members of the Thread class?
+a. 	join
+b. 	notify
+c. 	notifyAll
+d. 	run
+e. 	sleep
+f. 	start
+g. 	yield
+h. 	wait
+Question 3
+
+Which of the following methods are deprecated members of the Thread class?
+a. 	join
+b. 	notify
+c. 	notifyAll
+d. 	resume
+e. 	run
+f. 	sleep
+g. 	start
+h. 	stop
+i. 	suspend
+j. 	yield
+k. 	wait
+Question 4
+
+Which of the following methods name the InterruptedException in its throws clause?
+a. 	join
+b. 	notify
+c. 	notifyAll
+d. 	run
+e. 	sleep
+f. 	start
+g. 	yield
+h. 	wait
+Question 5
+
+A timeout argument can be passed to which of the following methods?
+a. 	join
+b. 	notify
+c. 	notifyAll
+d. 	run
+e. 	sleep
+f. 	start
+g. 	yield
+h. 	wait
+Question 6
+
+Which of the following instance methods should only be called by a thread that holds the lock of the instance on which the method is invoked?
+a. 	join
+b. 	notify
+c. 	notifyAll
+d. 	run
+e. 	start
+f. 	wait
+Question 7
+
+Which of the following is a checked exception?
+a. 	IllegalMonitorStateException
+b. 	IllegalThreadStateException
+c. 	IllegalArgumentException
+d. 	InterruptedException
+e. 	None of the above
+Question 8
+
+Which kind of variable would you prefer to synchronize on?
+a. 	A member variable of a primitive type
+b. 	A member variable that is an object reference
+c. 	A method local variable that is a reference to an instance that is created within the method
+d. 	None of the above
+Question 9
+
+synchronized (expression) block
+
+The synchronized statement has the form shown above. Which of the following are true statements?
+a. 	A compile-time error occurs if the expression produces a value of any reference type
+b. 	A compile-time error occurs if the expression produces a value of any primitive type
+c. 	A compile-time error does not occur if the expression is of type boolean
+d. 	The sychronized block may be processed normally if the expression is null
+e. 	If execution of the block completes normally, then the lock is released
+f. 	If execution of the block completes abruptly, then the lock is released
+g. 	A thread can hold more than one lock at a time
+h. 	Synchronized statements can be nested
+i. 	Synchronized statements with identical expressions can be nested
+Question 10
+
+Which of the following is a true statement?
+a. 	The process of executing a synchronized method requires the thread to acquire a lock
+b. 	Any overriding method of a synchronized method is implicitly synchronized
+c. 	If any method in a class is synchronized, then the class itself must also be declared using the synchronized modifier
+d. 	If a thread invokes a static synchronized method on an instance of class A, then the thread must acquire the lock of that instance of class A
+e. 	None of the above
+Question 11
+
+Which of the following thread state transitions model the lifecycle of a thread?
+a. 	The Dead state to the Ready state
+b. 	The Ready state to the Not-Runnable state
+c. 	The Ready state to the Running state
+d. 	The Running state to the Not-Runnable state
+e. 	The Running state to the Ready state
+f. 	The Not-Runnable state to the Ready state
+g. 	The Not-Runnable state to the Running state
+Question 12
+
+Which of the following are true statements?
+a. 	The Thread.yield method might cause the thread to move to the Not-Runnable state
+b. 	The Thread.yield method might cause the thread to move to the Ready state
+c. 	The same thread might continue to run after calling the Thread.yield method
+d. 	The Thread.yield method is a static method
+e. 	The behavior of the Thread.yield method is consistent from one platform to the next
+f. 	The Thread.sleep method causes the thread to move to the Not-Runnable state
+g. 	The Thread.sleep method causes the thread to move to the Ready state
+Question 13
+
+Which of the following will not force a thread to move into the Not-Runnable state?
+a. 	Thread.yield method
+b. 	Thread.sleep method
+c. 	Thread.join method
+d. 	Object.wait method
+e. 	By blocking on I/O
+f. 	Unsuccessfully attempting to acquire the lock of an object
+g. 	None of the above
+Question 14
+
+Which of the following will cause a dead thread to restart?
+a. 	Thread.yield method
+b. 	Thread.join method
+c. 	Thread.start method
+d. 	Thread.resume method
+e. 	None of the above
+Question 15
+
+When a thread is created and started, what is its initial state?
+a. 	New
+b. 	Ready
+c. 	Not-Runnable
+d. 	Runnning
+e. 	Dead
+f. 	None of the above
+Question 16
+
+Which of the following are true statements?
+a. 	The Thread.run method is used to start a new thread running
+b. 	The Thread.start method causes a new thread to get ready to run at the discretion of the thread scheduler
+c. 	The Runnable interface declares the start method
+d. 	The Runnable interface declares the run method
+e. 	The Thread class implements the Runnable interface
+f. 	If an Object.notify method call appears in a synchronized block, then it must be the last method call in the block
+g. 	No restriction is placed on the number of threads that can enter a synchronized method
+h. 	Some implementations of the Thread.yield method will not yield to a thread of lower priority
+Question 17
+
+Which of the following are true statements?
+a. 	Thread.MAX_PRIORITY == 10
+b. 	Thread.MAX_PRIORITY == 5
+c. 	Thread.NORM_PRIORITY == 5
+d. 	Thread.NORM_PRIORITY == 3
+e. 	Thread.NORM_PRIORITY == 0
+f. 	Thread.MIN_PRIORITY == 1
+g. 	Thread.MIN_PRIORITY == 0
+h. 	Thread.MIN_PRIORITY == -5
+i. 	Thread.MIN_PRIORITY == -10
+Question 18
+
+Which of the following are true statements?
+a. 	A program will terminate only when all daemon threads stop running
+b. 	A program will terminate only when all user threads stop running
+c. 	A daemon thread always runs at Thread.MIN_PRIORITY
+d. 	A thread inherits its daemon status from the thread that created it
+e. 	The daemon status of a thread can be changed at any time using the Thread.setDaemon method
+f. 	The Thread.setDaemon method accepts one of two argument values defined by the constants Thread.DAEMON and Thread.USER
+Question 19
+
+class A extends Thread {
+  public A(Runnable r) {super(r);}
+  public void run() {System.out.print("A");}
+}
+class B implements Runnable {
+  public void run() {System.out.print("B");}
+}
+class C {
+  public static void main(String[] args) {
+    new A(new B()).start();
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: A
+b. 	Prints: B
+c. 	Prints: AB
+d. 	Prints: BA
+e. 	Compile-time error
+f. 	Run-time error
+g. 	None of the above
+Question 20
+
+class A implements Runnable {
+  public void run() {System.out.print(Thread.currentThread().getName());}
+}
+class B implements Runnable {
+  public void run() {
+    new A().run();
+    new Thread(new A(),"T2").run();
+    new Thread(new A(),"T3").start();
+}}
+class C {
+  public static void main (String[] args) {
+    new Thread(new B(),"T1").start();
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: T1T1T1
+b. 	Prints: T1T1T2
+c. 	Prints: T1T2T2
+d. 	Prints: T1T2T3
+e. 	Prints: T1T1T3
+f. 	Prints: T1T3T3
+g. 	Compile-time error
+h. 	Run-time error
+i. 	None of the above
+Question 21
+
+class AnException extends Exception {}
+class A extends Thread {
+  public void run() throws AnException {
+    System.out.print("A"); throw new AnException();
+}}
+class B {
+  public static void main (String[] args) {
+    A a = new A(); a.start(); System.out.print("B");
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: A
+b. 	Prints: B
+c. 	Prints: AB
+d. 	Prints: BA
+e. 	Compile-time error
+f. 	Run-time error
+g. 	None of the above
+Question 22
+
+class A extends Thread {
+  public void run() {System.out.print("A");}
+}
+class B {
+  public static void main (String[] args) {
+    A a = new A();
+    a.start();
+    a.start();  // 1
+  }
+}
+
+What is the result of attempting to compile and run the program?
+a. 	The program compiles and runs without error
+b. 	The second attempt to start thread t1 is successful
+c. 	The second attempt to start thread t1 is ignored
+d. 	Compile-time error at marker 1
+e. 	An IllegalThreadStateException is thrown at run-time
+f. 	None of the above
+
+No.	Answer	Remark
+1	b  c  h  	notify  notifyAll  wait  	 
+2	e  g  	sleep  yield  	 
+3	d  h  i  	resume  stop  suspend  	For the purposes of the exam, you don't need to memorize the deprecated methods of the Thread class. Even though a question such as this will not be on the exam, every Java programmer should know that the deprecated methods should not be used in new programs.  
+4	a  e  h  	join  sleep  wait  	 
+5	a  e  h  	join  sleep  wait  	 
+6	b  c  f  	notify  notifyAll  wait  	 
+7	d  	InterruptedException  	The methods Object.wait, Thread.join and Thread.sleep name InterruptedException in their throws clauses.  
+8	b  	A member variable that is an object reference  	Primitives don't have locks; therefore, they can not be used to synchronize threads. A method local variable that is a reference to an instance that is created within the method should not be used to synchronize threads, because each thread has its own instance of the object and lock. Synchronization on an instance that is created locally makes about as much sense as placing on your doorstep a box full of keys to the door. Each person that comes to your door would have their own copy of the key; so the lock would provide no security.  
+9	b  e  f  g  h  i  	A compile-time error occurs if the expression produces a value of any primitive type  If execution of the block completes normally, then the lock is released  If execution of the block completes abruptly, then the lock is released  A thread can hold more than one lock at a time  Synchronized statements can be nested  Synchronized statements with identical expressions can be nested  	 
+10	a  	The process of executing a synchronized method requires the thread to acquire a lock  	The synchronized modifier can not be applied to a class. A method that overrides a synchronized method does not have to be synchronized. If a thread invokes a synchronized instance method on an instance of class A, then the thread must acquire the lock of that instance of class A. The same is not true for synchronized static methods. A synchronized static method is synchronized on the lock for the Class object that represents the class for which the method is a member.  
+11	c  d  e  f  	The Ready state to the Running state  The Running state to the Not-Runnable state  The Running state to the Ready state  The Not-Runnable state to the Ready state  	A dead thread can not be restarted.  
+12	b  c  d  f  	The Thread.yield method might cause the thread to move to the Ready state  The same thread might continue to run after calling the Thread.yield method  The Thread.yield method is a static method  The Thread.sleep method causes the thread to move to the Not-Runnable state  	The Thread.yield method is intended to cause the currently executing thread to move from the Running state to the Ready state and offer the thread scheduler an opportunity to allow a different thread to execute based on the discretion of the thread scheduler. The thread scheduler may select the same thread to run immediately, or it may allow a different thread to run. The Thread.yield method is a native method; so the behavior is not guaranteed to be the same on every platform. However, at least some implementations of the yield method will not yield to a thread that has a lower priority.  
+13	a  	Thread.yield method  	The Thread.yield method may cause a thread to move into the Ready state, but that state transition is not guaranteed. The JLS states that the Thread.yield method provides a hint to the thread scheduler, but the scheduler is free to interpret--or ignore--the hint as it sees fit. Nothing in the JLS suggests that the thread might move to the Not-Runnable state.  
+14	e  	None of the above  	A dead thread can not be restarted.  
+15	b  	Ready  	 
+16	b  d  e  h  	The Thread.start method causes a new thread to get ready to run at the discretion of the thread scheduler  The Runnable interface declares the run method  The Thread class implements the Runnable interface  Some implementations of the Thread.yield method will not yield to a thread of lower priority  	The Object.notify method can only be called by the thread that holds the lock of the object on which the method is invoked. Suppose that thread T1 enters a block that is synchronized on an object, A. Within the block, thread T1 holds the lock of A. Even if thread T1 calls the notify method immediately after entering the synchronized block, no other thread can grab the lock of object A until T1 leaves the synchronized block. For that reason, the transfer of control from thread T1 to any waiting thread can not be accelerated by moving the notify method to an earlier point in the synchronized block. The behavior of Thread.yield is platform specific. However, at least some implementations of the yield method will not yield to a thread that has a lower priority. Invoking the Thread.yield method is like offering a suggestion to the JVM to allow another thread to run. The response to the suggestion is platform specific.  
+17	a  c  f  	Thread.MAX_PRIORITY == 10  Thread.NORM_PRIORITY == 5  Thread.MIN_PRIORITY == 1  	 
+18	b  d  	A program will terminate only when all user threads stop running  A thread inherits its daemon status from the thread that created it  	 
+19	a  	Prints: A  	If a Runnable target object is passed to the constructor of the Thread class, then the Thread.run method will invoke the run method of the Runnable target. In this case, the Thread.run method is overridden by A.run. The A.run method does nothing more than print the letter A. The invocation of the A.start method inside the main method results in the invocation of A.run, and the letter A is printed. The B.run method is never invoked.  
+20	e  	Prints: T1T1T3  	The Thread.currentThread method returns a reference to the currently executing thread. When the run method is invoked directly it does not start a new thread; so T1 is printed twice.  
+21	e  	Compile-time error  	The Runnable.run method does not have a throws clause; so any implementation of run can not throw a checked exception.  
+22	e  	An IllegalThreadStateException is thrown at run-time  	For the purposes of the exam, invoking the start method on a thread that has already been started will generate an IllegalThreadStateException. The actual behavior of the method might be different. If the start method is invoked on a thread that is already running, then an IllegalThreadStateException will probably be thrown. However, if the thread is already dead then the second attempt to start the thread will probably be ignored, and no exception will be thrown. For the purposes of the exam, the exception is always thrown in response to the second invocation of the start method. This is a case where the exam tests your knowledge of the specification and ignores the actual behavior of the 1.4 version of the JVM.   
+
+							Collection
+
+
+Question 1
+
+Which implementation of the List interface produces the slowest access to an element in the middle of the list by means of an index?
+a. 	Vector
+b. 	ArrayList
+c. 	LinkedList
+d. 	None of the above
+Question 2
+
+import java.util.*;
+class GFC100 {
+  public static void main (String args[]) {
+    Object a1 = new LinkedList(), b1 = new TreeSet();
+    Object c1 = new TreeMap();
+    System.out.print((a1 instanceof Collection)+",");
+    System.out.print((b1 instanceof Collection)+",");
+    System.out.print(c1 instanceof Collection);
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: false,false,false
+b. 	Prints: false,false,true
+c. 	Prints: false,true,false
+d. 	Prints: false,true,true
+e. 	Prints: true,false,false
+f. 	Prints: true,false,true
+g. 	Prints: true,true,false
+h. 	Prints: true,true,true
+i. 	None of the above
+Question 3
+ 	•	Each element must be unique.
+ 	•	Contains no duplicate elements.
+ 	•	Elements are not key/value pairs.
+ 	•	Accessing an element can be almost as fast as performing a similar operation on an array.
+
+Which of these classes provides the specified features?
+a. 	LinkedList
+b. 	TreeMap
+c. 	TreeSet
+d. 	HashMap
+e. 	HashSet
+f. 	LinkedHashMap
+g. 	Hashtable
+h. 	None of the above
+Question 4
+
+import java.util.*;
+class GFC101 {
+  public static void main (String args[]) {
+    Object a1 = new HashMap(), b1 = new ArrayList();
+    Object c1 = new HashSet();
+    System.out.print((a1 instanceof Collection)+",");
+    System.out.print((b1 instanceof Collection)+",");
+    System.out.print(c1 instanceof Collection);
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: false,false,false
+b. 	Prints: false,false,true
+c. 	Prints: false,true,false
+d. 	Prints: false,true,true
+e. 	Prints: true,false,false
+f. 	Prints: true,false,true
+g. 	Prints: true,true,false
+h. 	Prints: true,true,true
+i. 	None of the above
+Question 5
+ 	•	Entries are organized as key/value pairs.
+ 	•	Duplicate entries replace old entries.
+
+Which interface of the java.util package offers the specified behavior?
+a. 	List
+b. 	Map
+c. 	Set
+d. 	None of the above
+Question 6
+
+import java.util.*;
+class GFC102 {
+  public static void main (String args[]) {
+    Object a = new HashSet();
+    System.out.print((a instanceof Set)+",");
+    System.out.print(a instanceof SortedSet);
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: false,false
+b. 	Prints: false,true
+c. 	Prints: true,false
+d. 	Prints: true,true
+e. 	None of the above
+Question 7
+
+Which implementation of the List interface provides for the fastest insertion of a new element into the middle of the list?
+a. 	Vector
+b. 	ArrayList
+c. 	LinkedList
+d. 	None of the above
+Question 8
+
+import java.util.*;
+class GFC103 {
+  public static void main (String args[]) {
+    Object a1 = new TreeSet();
+    System.out.print((a1 instanceof Set)+",");
+    System.out.print(a1 instanceof SortedSet);
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: false,false
+b. 	Prints: false,true
+c. 	Prints: true,false
+d. 	Prints: true,true
+e. 	None of the above
+Question 9
+ 	•	Stores key/value pairs.
+ 	•	Duplicate entries replace old entries.
+ 	•	Entries are sorted using a Comparator or the Comparable interface.
+
+Which of these classes provides the specified features?
+a. 	LinkedList
+b. 	TreeMap
+c. 	TreeSet
+d. 	HashMap
+e. 	HashSet
+f. 	Hashtable
+g. 	None of the above
+Question 10
+
+import java.util.*;
+class GFC104 {
+  public static void main (String args[]) {
+    LinkedList a1 = new LinkedList();
+    ArrayList b1 = new ArrayList();
+    Vector c1 = new Vector();
+    System.out.print((a1 instanceof List)+",");
+    System.out.print((b1 instanceof List)+",");
+    System.out.print(c1 instanceof List);
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: false,false,false
+b. 	Prints: false,false,true
+c. 	Prints: false,true,false
+d. 	Prints: false,true,true
+e. 	Prints: true,false,false
+f. 	Prints: true,false,true
+g. 	Prints: true,true,false
+h. 	Prints: true,true,true
+i. 	None of the above
+Question 11
+ 	•	Entries are not organized as key/value pairs.
+ 	•	Duplicate entries are rejected.
+
+Which interface of the java.util package offers the specified behavior?
+a. 	List
+b. 	Map
+c. 	Set
+d. 	None of the above
+Question 12
+
+import java.util.*;
+class GFC105 {
+  public static void main (String args[]) {
+    Object a = new HashSet(), b = new HashMap();
+    Object c = new Hashtable();
+    System.out.print((a instanceof Collection)+",");
+    System.out.print((b instanceof Collection)+",");
+    System.out.print(c instanceof Collection);
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: false,false,false
+b. 	Prints: false,false,true
+c. 	Prints: false,true,false
+d. 	Prints: false,true,true
+e. 	Prints: true,false,false
+f. 	Prints: true,false,true
+g. 	Prints: true,true,false
+h. 	Prints: true,true,true
+i. 	None of the above
+Question 13
+ 	•	Elements are not key/value pairs.
+ 	•	Contains no duplicate elements.
+ 	•	The entries can be sorted using the Comparable interface.
+
+Which of these classes provides the specified features?
+a. 	LinkedList
+b. 	TreeMap
+c. 	TreeSet
+d. 	HashMap
+e. 	HashSet
+f. 	Hashtable
+g. 	None of the above
+Question 14
+
+import java.util.*;
+class GFC106 {
+  public static void main (String args[]) {
+    Object a = new HashSet(), b = new HashMap();
+    Object c = new Hashtable();
+    System.out.print((a instanceof Map)+",");
+    System.out.print((b instanceof Map)+",");
+    System.out.print(c instanceof Map);
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: false,false,false
+b. 	Prints: false,false,true
+c. 	Prints: false,true,false
+d. 	Prints: false,true,true
+e. 	Prints: true,false,false
+f. 	Prints: true,false,true
+g. 	Prints: true,true,false
+h. 	Prints: true,true,true
+i. 	None of the above
+Question 15
+ 	•	Stores key/value pairs.
+ 	•	Allows null elements, keys, and values.
+ 	•	Duplicate entries replace old entries.
+ 	•	Entries are not sorted.
+
+Which of these classes provides the specified features?
+a. 	LinkedList
+b. 	TreeMap
+c. 	TreeSet
+d. 	HashMap
+e. 	HashSet
+f. 	Hashtable
+g. 	None of the above
+Question 16
+
+import java.util.*;
+class GFC107 {
+  public static void main (String args[]) {
+    Object a = new HashSet(), b = new HashMap();
+    Object c = new Hashtable();
+    System.out.print((a instanceof Cloneable)+",");
+    System.out.print((b instanceof Cloneable)+",");
+    System.out.print(c instanceof Cloneable);
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: false,false,false
+b. 	Prints: false,false,true
+c. 	Prints: false,true,false
+d. 	Prints: false,true,true
+e. 	Prints: true,false,false
+f. 	Prints: true,false,true
+g. 	Prints: true,true,false
+h. 	Prints: true,true,true
+i. 	None of the above
+Question 17
+ 	•	Entries are not organized as key/value pairs.
+ 	•	Generally accepts duplicate elements.
+ 	•	Entries may be accessed by means of an index.
+
+Which interface of the java.util package offers the specified behavior?
+a. 	List
+b. 	Map
+c. 	Set
+d. 	None of the above
+Question 18
+
+import java.util.*;
+import java.io.Serializable;
+class GFC108 {
+  public static void main (String args[]) {
+    HashMap a = new HashMap();
+    boolean b1, b2, b3;
+    b1 = (a instanceof Cloneable) & (a instanceof Serializable);
+    b2 = a instanceof Map;
+    b3 = a instanceof Collection;
+    System.out.print(b1 + "," + b2 + "," + b3);
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: false,false,false
+b. 	Prints: false,false,true
+c. 	Prints: false,true,false
+d. 	Prints: false,true,true
+e. 	Prints: true,false,false
+f. 	Prints: true,false,true
+g. 	Prints: true,true,false
+h. 	Prints: true,true,true
+i. 	None of the above
+Question 19
+
+Which of the following classes allow unsynchronized read operations by multiple threads?
+a. 	Vector
+b. 	Hashtable
+c. 	TreeMap
+d. 	TreeSet
+e. 	HashMap
+f. 	HashSet
+Question 20
+ 	•	Entries are organized as key/value pairs.
+ 	•	Duplicate entries replace old entries.
+ 	•	Entries are sorted using a Comparator or the Comparable interface.
+
+Which interface of the java.util package offers the specified behavior?
+a. 	List
+b. 	Map
+c. 	Set
+d. 	SortedSet
+e. 	SortedMap
+f. 	None of the above
+Question 21
+
+import java.util.*;
+class GFC110 {
+  public static void main (String[] args) {
+    Object m = new LinkedHashMap();
+    System.out.print((m instanceof Collection)+",");
+    System.out.print((m instanceof Map)+",");
+    System.out.print(m instanceof List);
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: false,false,false
+b. 	Prints: false,false,true
+c. 	Prints: false,true,false
+d. 	Prints: false,true,true
+e. 	Prints: true,false,false
+f. 	Prints: true,false,true
+g. 	Prints: true,true,false
+h. 	Prints: true,true,true
+i. 	None of the above
+Question 22
+
+import java.util.*;
+class GFC109 {
+  public static void main (String[] args) {
+    Object v = new Vector();
+    System.out.print((v instanceof Collections)+",");
+    System.out.print((v instanceof Arrays)+",");
+    System.out.print(v instanceof List);
+}}
+
+What is the result of attempting to compile and run the program?
+a. 	Prints: false,false,false
+b. 	Prints: false,false,true
+c. 	Prints: false,true,false
+d. 	Prints: false,true,true
+e. 	Prints: true,false,false
+f. 	Prints: true,false,true
+g. 	Prints: true,true,false
+h. 	Prints: true,true,true
+i. 	None of the above
+
+
+
+No.	Answer	Remark
+1	c  	LinkedList  	ArrayList and Vector both use an array to store the elements of the list; so access to any element using an index is very fast. A LinkedList is implemented using a doubly linked list; so access to an element requires the list to be traversed using the links.  
+2	g  	Prints: true,true,false  	The List and Set interfaces extend the Collection interface; so both List and Set could be cast to type Collection without generating a ClassCastException. Therefore, the first two of the three relational expressions return true. The Map interface does not extend Collection. The reference variable c1 refers to an instance of TreeMap; so the relational expression c1 instanceof Collection returns the value false.  
+3	e  	HashSet  	The elements of a Map are key/value pairs; so a Map is not a good choice. A List generally accepts duplicate elements. A Set stores a collection of unique elements. Any attempt to store a duplicate element in a Set is rejected. Adding and removing an element in a TreeSet involves walking the tree to determine the location of the element. A HashSet stores the elements in a hashtable; so elements in a HashSet can be accessed almost as quickly as elements in an array as long as the hash function disperses the elements properly. Although the LinkedHashSet is not among the answer options it could arguably satisfy the requirements. However, the put and remove methods of the LinkedHashSet are a little slower than the same methods of the HashSet due to the need to maintain the linked list through the elements of the LinkedHashSet.  
+4	d  	Prints: false,true,true  	The Map interface does not extend Collection. The reference variable a1 refers to an instance of HashMap; so the relational expression a1 instanceof Collection returns the value false. The List and Set interfaces extend the Collection interface; so both List and Set could be cast to type Collection without generating a ClassCastException. Therefore, the second and third relational expressions return true.  
+5	b  	Map  	The List and Set interfaces do not support key/value pairs. A list generally allows duplicate entries. A Set rejects duplicate entries.  
+6	c  	Prints: true,false  	HashSet implements the Set interface, but not the SortedSet interface.  
+7	c  	LinkedList  	ArrayList and Vector both use an array to store the elements of the list. When an element is inserted into the middle of the list the elements that follow the insertion point must be shifted to make room for the new element. The LinkedList is implemented using a doubly linked list; an insertion requires only the updating of the links at the point of insertion. Therefore, the LinkedList allows for fast insertions and deletions.  
+8	d  	Prints: true,true  	TreeSet implements the Set interface and the SortedSet interface.  
+9	b  	TreeMap  	The requirement to store key/value pairs is directly satisfied by a concrete implementation of the Map interface. The List and Set interfaces recognize objects, but do not recognize keys and values. TreeMap and TreeSet store elements in a sorted order based on the key, but the TreeSet does not support key/value pairs.  
+10	h  	Prints: true,true,true  	The 1.2 version of Java introduced the updated Vector class that implements the List interface.  
+11	c  	Set  	The Map interface organizes entries as key/value pairs. A list generally allows duplicate entries. A Set rejects duplicate entries.  
+12	e  	Prints: true,false,false  	HashSet is a subclass of AbstractSet and AbstractCollection; therefore, it implements the Collection interface. HashMap and Hashtable do not implement the Collection interface. Instead, HashMap extends AbstractMap and implements the Map interface. Hashtable extends Dictionary and implements the Map interface.  
+13	c  	TreeSet  	The elements are not key/value pairs; so a Map is not a good choice. A List generally accepts duplicate elements. A Set stores a collection of unique objects; so any attempt to store a duplicate object is rejected. TreeSet stores elements in an order that is determined either by a Comparator or by the Comparable interface.  
+14	d  	Prints: false,true,true  	HashSet implements the Set interface, but not the Map interface. HashMap extends AbstractMap and implements the Map interface. Hashtable extends Dictionary and implements the Map interface.  
+15	d  	HashMap  	The requirement to store key/value pairs is directly satisfied by a concrete implementation of the Map interface. The List and Set interfaces recognize objects, but do not recognize keys and values. The requirement to allow null elements is not satisfied by a Hashtable. TreeMap and TreeSet store elements in a sorted order based on the key.  
+16	h  	Prints: true,true,true  	All three implement Cloneable.  
+17	a  	List  	The Map interface organizes entries as key/value pairs. A list generally allows duplicate entries. A Set rejects duplicate entries. A List allows entries to be accessed using an index.  
+18	g  	Prints: true,true,false  	HashMap does not implement the Collection interface.  
+19	c  d  e  f  	TreeMap  TreeSet  HashMap  HashSet  	The Vector and Hashtable methods are synchronized and do not allow for simultaneous access by multiple threads. The concrete subclasses of the AbstractList, AbstractMap, and AbstractSet classes allow for unsynchronized read operations by multiple threads. Additionally, the sychronized wrapper methods of the Collections class allow for the instantiation of a Collection, List, Map, Set, SortedMap, or SortedSet with synchronized methods. If simultaneous read and write operations are necessary then a synchronized instance should be used.  
+20	e  	SortedMap  	The List and Set interfaces do not support key/value pairs. A list generally allows duplicate entries. A Set rejects duplicate entries. A Map organizes the entries as key/value pairs. The SortedMap is similar to a Map except that the ordering of the elements is determined by a Comparator or the Comparable interface.  
+21	c  	Prints: false,true,false  	LinkedHashMap does not implement the Collection interface or the List interface.  
+22	b  	Prints: false,false,true  	The Collections class is not the same as the Collection interface. The Collections class contains a variety of methods used to work with collections. For example, Collections.shuffle is used to randomly shuffle the elements of a Collection. Similarly, the Arrays class provides utility methods for working with arrays.   
